@@ -24,15 +24,11 @@
 		{
 			$this->table = $table;
 		}
-
-		public function getTable()
-		{
-			return $this->table;
-		}
+ 
 
 		public function delete($id)
 		{
-			
+
 		}
 
 		public function find($id)
