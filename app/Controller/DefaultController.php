@@ -15,6 +15,8 @@
 		public function about()
 		{
 			echo "about !";	
+			$postManager = new \Manager\PostManager();
+			var_dump($postManager);
 		}
 
 	}
