@@ -1,7 +1,10 @@
 <?php
 
-	//paramètres de connexion en constantes
-    define("DBHOST", "localhost");  //soit localhost, soit l'IP du serveur
-    define("DBUSER", "root");       //utilisateur de la base (différent de PHPmyAdmin)
-    define("DBPASS", "");           //mot de passe
-    define("DBNAME", "w2");  //nom de la base de données
+	//url
+	define("BASEURL", "/formation/w2");
+
+	//database
+    define("DBHOST", "localhost");  
+    define("DBUSER", "root");     
+    define("DBPASS", "");         
+    define("DBNAME", "w2"); 
