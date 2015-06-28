@@ -22,10 +22,14 @@
 		/**
 		 * Show template file
 		 */
-		public function show($file, array $data = null, array $options = null)
+		public function show($file, array $data = array())
 		{
-			$renderer = new \W\View\Renderer();
-			$renderer->render($file, $data, $options);
+			$loader = new \Twig_Loader_Filesystem('app/templates');
+			$twig = new \Twig_Environment($loader, array(
+			    'cache' => 'app/cache',
+			));
+			$template = $twig->loadTemplate($file);
+			echo $template->render($data);
 		}
 
 	}

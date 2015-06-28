@@ -9,7 +9,7 @@
 
 		public function home()
 		{
-			$this->show("default/home.php");
+			$this->show("default/home.html.twig");
 		}
 
 		public function about()
