@@ -2,9 +2,9 @@
 	
 	namespace Controller;
 
-	use \W\Controller\BaseController;
+	use \W\Controller\Controller;
 
-	class DefaultController extends BaseController
+	class DefaultController extends Controller
 	{
 
 		public function home()

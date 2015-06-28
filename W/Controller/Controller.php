@@ -2,7 +2,7 @@
 
 	namespace W\Controller;
 
-	class BaseController 
+	class Controller 
 	{
 
 		public function __construct()
