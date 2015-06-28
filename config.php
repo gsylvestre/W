@@ -1,5 +1,8 @@
 <?php
 
+	//security
+	define("SECRET", "fj0932jfweriewtiEWT32990230gjgw9jge");
+
 	//url
 	define("BASEURL", "/formation/w");
 
