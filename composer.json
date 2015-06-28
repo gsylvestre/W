@@ -2,7 +2,8 @@
     "name": "guillaume/w2",
     "description": "W3 framework with deps",
     "require": {
-        "altorouter/altorouter": "1.*"
+        "altorouter/altorouter": "1.*",
+        "twig/twig": "1.*"
     },
     "authors": [
         {
