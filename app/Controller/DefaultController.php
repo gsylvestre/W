@@ -9,7 +9,7 @@
 
 		public function home()
 		{
-			echo "home !";
+			$this->show("default/home.php");
 		}
 
 		public function about()
