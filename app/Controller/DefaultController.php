@@ -12,6 +12,13 @@
 			$this->show("default/home.html.twig");
 		}
 
+		public function aboutTest($id, $yo)
+		{
+			echo $id;
+			echo $yo;
+			die();
+		}
+
 		public function about()
 		{
 			echo "about !";	

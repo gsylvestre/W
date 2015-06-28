@@ -33,7 +33,9 @@
 				$controllerFullName = 'Controller\\'.$controllerName."Controller";
 				
 				$controller = new $controllerFullName();
-				$controller->$methodName();
+				
+				//call method from controller, with url params passed as method's arguments
+				call_user_func_array(array($controller, $methodName), $match['params']);
 			}
 			else {
 				echo "404";
