@@ -5,7 +5,7 @@
 	class Matcher 
 	{
 
-		protected $router;
+		protected $router; //AltoRouter 
 
 		public function __construct($router)
 		{
@@ -17,6 +17,9 @@
 			$this->router = $router;
 		}
 
+		/**
+		 * Match current route and call controller method
+		 */
 		public function match()
 		{
 
@@ -24,18 +27,13 @@
 
 			if ($match){
 
-				var_dump($match);
-
 				$callableParts = explode("#", $match["target"]);
 				$controllerName = $callableParts[0];
 				$methodName = $callableParts[1];
-
 				$controllerFullName = 'Controller\\'.$controllerName."Controller";
-				echo $controllerFullName;
+				
 				$controller = new $controllerFullName();
 				$controller->$methodName();
-
-
 			}
 			else {
 				echo "404";
