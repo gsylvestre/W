@@ -1,0 +1,19 @@
+{
+    "name": "guillaume/w2",
+    "description": "W3 framework with deps",
+    "require": {
+        "altorouter/altorouter": "1.*"
+    },
+    "authors": [
+        {
+            "name": "gsylvestre",
+            "email": "gsylvestre@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "W\\": "W/",
+            "": "app/"
+        }
+    }
+}
