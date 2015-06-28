@@ -1,10 +1,10 @@
 <?php
 
 	//url
-	define("BASEURL", "/formation/w2");
+	define("BASEURL", "/formation/w");
 
 	//database
     define("DBHOST", "localhost");  
     define("DBUSER", "root");     
     define("DBPASS", "");         
-    define("DBNAME", "w2"); 
+    define("DBNAME", "w"); 
