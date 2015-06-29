@@ -20,6 +20,16 @@
 		}
 
 		/**
+		 * Get current logged in user from session
+		 */
+		public function getUser()
+		{
+			$session = new W\Session\SessionManager();
+			$user = $session->get("user");
+			return $user;
+		}
+
+		/**
 		 * Show template file
 		 */
 		public function show($file, array $data = array())
