@@ -9,6 +9,7 @@
 
 		public function home()
 		{
+			\W\Security\StringUtils::randomString();
 			$this->show("default/home.html.twig");
 		}
 
