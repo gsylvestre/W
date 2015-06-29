@@ -4,7 +4,7 @@
 	require("config.php");
 	
 	$router = new AltoRouter();
-	$router->setBasePath(BASEURL);
+	$router->setBasePath(BASE_URL);
 
 	$router->map('GET', '/', 'Default#home');
 	$router->map('GET', '/about/', 'Default#about');
