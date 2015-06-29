@@ -20,21 +20,11 @@
 
 		protected function getConfigValues()
 		{
-			if (defined(DB_USER_TABLE)){
-				$this->table = DB_USER_TABLE;
-			}
-			if (defined(DB_USERNAME_PROPERTY)){
-				$this->usernameProperty = DB_USERNAME_PROPERTY;
-			}
-			if (defined(DB_EMAIL_PROPERTY)){
-				$this->emailProperty = DB_EMAIL_PROPERTY;
-			}
-			if (defined(DB_PASSWORD_PROPERTY)){
-				$this->passwordProperty = DB_PASSWORD_PROPERTY;
-			}
-			if (defined(DB_TOKEN_PROPERTY)){
-				$this->tokenProperty = DB_TOKEN_PROPERTY;
-			}
+			if (defined(DB_USER_TABLE)) $this->table = DB_USER_TABLE;
+			if (defined(DB_USERNAME_PROPERTY)) $this->usernameProperty = DB_USERNAME_PROPERTY;
+			if (defined(DB_EMAIL_PROPERTY)) $this->emailProperty = DB_EMAIL_PROPERTY;
+			if (defined(DB_PASSWORD_PROPERTY)) $this->passwordProperty = DB_PASSWORD_PROPERTY;
+			if (defined(DB_TOKEN_PROPERTY)) $this->tokenProperty = DB_TOKEN_PROPERTY;
 		}
 
 		public function isValidLoginInfo($usernameOrEmail, $plainPassword)
