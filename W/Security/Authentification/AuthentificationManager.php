@@ -44,7 +44,12 @@
 			}
 
 			$hashedPassword = StringUtils::hashPassword($plainPassword);
-			return StringUtils::stringEquals($hashedPassword, $foundUser[$this->passwordProperty]);
+			$passwordMatch = StringUtils::stringEquals($hashedPassword, $foundUser[$this->passwordProperty]);
+			if ($passwordMatch){
+				return $foundUser;
+			}
+			
+			return false;
 		}
 
 		public function logUserIn($user)
