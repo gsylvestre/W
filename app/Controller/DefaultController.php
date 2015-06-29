@@ -9,7 +9,7 @@
 
 		public function home()
 		{
-			\W\Security\StringUtils::randomString();
+			echo \W\Security\StringUtils::hashPassword("yo");
 			$this->show("default/home.html.twig");
 		}
 
