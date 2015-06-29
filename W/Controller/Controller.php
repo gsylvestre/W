@@ -28,6 +28,9 @@
 			$twig = new \Twig_Environment($loader, array(
 			    'cache' => 'app/cache',
 			));
+
+			//$twig->addGlobal('myStuff', $someVariable);
+			
 			$template = $twig->loadTemplate($file);
 			echo $template->render($data);
 		}
