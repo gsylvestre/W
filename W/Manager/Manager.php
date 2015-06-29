@@ -39,7 +39,7 @@
 			if (substr($tableName, -1) != "s"){
 				$tableName .= "s";
 			}
-			$this->table = $tableName;
+			$this->table = DB_TABLE_PREFIX . $tableName;
 		}
 
 		public function setTable($table)

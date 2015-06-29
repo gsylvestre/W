@@ -18,3 +18,4 @@
     define("DB_USER", "root");     
     define("DB_PASS", "");         
     define("DB_NAME", "w"); 
+    define("DB_TABLE_PREFIX", "");
