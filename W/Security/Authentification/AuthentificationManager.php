@@ -3,6 +3,7 @@
 	namespace W\Security\Authentification;
 
 	use W\Security\StringUtils;
+	use \W\Session\SessionManager;
 
 	class AuthentificationManager
 	{
@@ -48,19 +49,19 @@
 			if ($passwordMatch){
 				return $foundUser;
 			}
-			
+
 			return false;
 		}
 
 		public function logUserIn($user)
 		{
-			$session = new \W\Session\SessionManager();
+			$session = new SessionManager();
 			$session->set("user", $user);
 		}
 
 		public function logUserOut()
 		{
-			$session = new \W\Session\SessionManager();
+			$session = new SessionManager();
 			$session->unset("user");
 		}
 	}
