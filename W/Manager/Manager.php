@@ -70,7 +70,7 @@
 		}
 
 
-		public function insert(array $data)
+		public function insert(array $data, $stripTags = true)
 		{
 
 			$colNames = array_keys($data);
@@ -85,13 +85,14 @@
 
 			$sth = $this->dbh->prepare($sql);
 			foreach($data as $key => $value){
+				$value = ($stripTags) ? strip_tags($value) : $value;
 				$sth->bindValue(":".$key, $value);
 			}
 			return $sth->execute();
 		}
 
 
-		public function update(array $data, $id)
+		public function update(array $data, $id, $stripTags = true)
 		{
 			if (!is_numeric($id)){
 				return false;
@@ -111,6 +112,7 @@
 
 			$sth = $this->dbh->prepare($sql);
 			foreach($data as $key => $value){
+				$value = ($stripTags) ? strip_tags($value) : $value;
 				$sth->bindValue(":".$key, $value);
 			}
 			$sth->bindValue(":id", $id);
