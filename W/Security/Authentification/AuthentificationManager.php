@@ -4,7 +4,7 @@
 
 	use W\Security\StringUtils;
 
-	class Authentificator 
+	class AuthentificationManager
 	{
 
 		protected $table = "users";
@@ -47,4 +47,15 @@
 			return StringUtils::stringEquals($hashedPassword, $foundUser[$this->passwordProperty]);
 		}
 
+		public function logUserIn($user)
+		{
+			$session = new \W\Session\SessionManager();
+			$session->set("user", $user);
+		}
+
+		public function logUserOut()
+		{
+			$session = new \W\Session\SessionManager();
+			$session->unset("user");
+		}
 	}
