@@ -7,10 +7,17 @@
 
 		public function __construct()
 		{
+			$this->start();
+		}
+
+
+		public function start()
+		{
 			if(!isset($_SESSION)) {
 			     session_start();
 			}
 		}
+
 
 		public function set($key, $value)
 		{
@@ -30,6 +37,16 @@
 			if (!empty($_SESSION[$key])){
 				unset($_SESSION[$key]);
 			}
+		}
+
+		public function unsetAll()
+		{
+			session_unset();
+		}
+
+		public function destroy()
+		{
+			session_destroy();
 		}
 
 	}
