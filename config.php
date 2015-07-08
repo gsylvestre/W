@@ -1,8 +1,5 @@
 <?php
 
-	//security
-	define("SECRET", "fj0932jfweriewtiEWT32990230gjgw9jge");
-
 	//user authentification
 	define("DB_USER_TABLE", "users");
 	define("DB_USERNAME_PROPERTY", "username");
