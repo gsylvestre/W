@@ -1,6 +1,6 @@
 <?php
 
-	namespace W\Security\Authentification;
+	namespace W\Security;
 
 	use W\Security\StringUtils;
 	use \W\Session\SessionManager;
@@ -63,5 +63,12 @@
 		{
 			$session = new SessionManager();
 			$session->unset("user");
+		}
+
+		public function getLoggedUser()
+		{
+			$session = new SessionManager();
+			$user = $session->get("user");
+			return $user;
 		}
 	}

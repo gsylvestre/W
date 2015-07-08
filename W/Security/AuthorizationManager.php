@@ -1,6 +1,6 @@
 <?php
 
-	namespace W\Security\Authorization;
+	namespace W\Security;
 
 	use \W\Session\SessionManager;
 

@@ -2,6 +2,9 @@
 
 	namespace W\Controller;
 
+	use W\Security\AuthenticationManager;
+	use W\Security\AuthorizationManager;
+
 	class Controller 
 	{
 
@@ -60,8 +63,8 @@
 		 */
 		public function getUser()
 		{
-			$session = new W\Session\SessionManager();
-			$user = $session->get("user");
+			$authenticationManager = new AuthenticationManager();
+			$user = $authenticationManager->getLoggedUser();
 			return $user;
 		}
 
@@ -73,7 +76,7 @@
 			if (!is_array($roles)){
 				$roles = [$roles];
 			}
-			$authorizationManager = new W\Security\Authorization\AuthorizationManager();
+			$authorizationManager = new AuthorizationManager();
 			foreach($roles as $role){
 				if ($authorizationManager->isGranted($role)){
 					return true;
