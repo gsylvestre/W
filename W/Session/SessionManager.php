@@ -32,7 +32,7 @@
 			return $_SESSION[$key];
 		}
 
-		public function unset($key)
+		public function remove($key)
 		{
 			if (!empty($_SESSION[$key])){
 				unset($_SESSION[$key]);

@@ -9,6 +9,7 @@
 
 		public function home()
 		{
+			$this->allowTo("admin");
 			//echo \W\Security\StringUtils::hashPassword("yo");
 			$this->show("default/home", ["name" => "fdsf"]);
 		}

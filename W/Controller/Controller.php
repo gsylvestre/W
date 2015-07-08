@@ -8,11 +8,6 @@
 	class Controller 
 	{
 
-		public function __construct()
-		{
-
-		}
-
 		/**
 		 * Redirect to an URI
 		 */
