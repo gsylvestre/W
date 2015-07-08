@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title><?=$this->e($title);?></title>
 </head>
 <body>
-	{% block main_content %}{% endblock %}
+	<?=$this->section('main_content')?>
 </body>
 </html>

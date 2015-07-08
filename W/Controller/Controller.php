@@ -27,15 +27,10 @@
 		 */
 		public function show($file, array $data = array())
 		{
-			$loader = new \Twig_Loader_Filesystem('app/templates');
-			$twig = new \Twig_Environment($loader, array(
-			    'cache' => 'app/cache',
-			));
+			$templates = new \League\Plates\Engine('app/templates');
 
-			//$twig->addGlobal('myStuff', $someVariable);
-			
-			$template = $twig->loadTemplate($file);
-			echo $template->render($data);
+			// Render a template
+			echo $templates->render($file, $data);
 		}
 
 		/**
