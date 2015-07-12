@@ -5,7 +5,8 @@
         "altorouter/altorouter": "1.*",
         "twig/twig": "1.*",
         "league/plates": "3.*",
-        "ircmaxell/random-lib": "^1.1"
+        "ircmaxell/random-lib": "^1.1",
+        "ircmaxell/password-compat": "^1.0"
     },
     "authors": [
         {
