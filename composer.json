@@ -1,9 +1,8 @@
 {
-    "name": "guillaume/w2",
-    "description": "W3 framework with deps",
+    "name": "guillaume/w",
+    "description": "WF3 framework",
     "require": {
         "altorouter/altorouter": "1.*",
-        "twig/twig": "1.*",
         "league/plates": "3.*",
         "ircmaxell/random-lib": "^1.1",
         "ircmaxell/password-compat": "^1.0"
