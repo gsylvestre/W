@@ -17,7 +17,7 @@
 		public function hometwo()
 		{
 			//$this->allowTo("admin");
-			//echo \W\Security\StringUtils::hashPassword("yo");
+			echo \W\Security\StringUtils::randomString(50);
 			$this->show("default/home", ["name" => "fdsf"]);
 		}
 
