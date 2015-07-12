@@ -23,7 +23,7 @@
 				$router->map($route[0], $route[1], $route[2]);
 			}
 
-			$matcher = new \W\AltoRouter\Matcher($router);
+			$matcher = new \W\Router\AltoRouter\Matcher($router);
 			$matcher->match();
 		}
 

@@ -1,6 +1,6 @@
 <?php
 
-	namespace W\AltoRouter;
+	namespace W\Router\AltoRouter;
 
 	class Matcher 
 	{

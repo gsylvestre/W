@@ -1,6 +1,6 @@
 <?php
 
-	namespace W\Plates;
+	namespace W\View\Plates;
 
 	use League\Plates\Engine;
 	use League\Plates\Extension\ExtensionInterface;
