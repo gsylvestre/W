@@ -17,13 +17,7 @@
 
 		public function isGranted($role)
 		{
-
-			if (empty($this->user["role"])){
-				return false;
-			}
-
-
-			if ($this->user["role"] === $role){
+			if (!empty($this->user["role"]) && $this->user["role"] === $role){
 				return true;
 			}
 
