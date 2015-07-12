@@ -15,7 +15,7 @@
 
 	    public function assetUrl($path)
 	    {
-	        return "//" . $_SERVER['SERVER_NAME'] . BASE_URL . '/assets/' . $path;
+	        return "//" . $_SERVER['SERVER_NAME'] . W_BASE_URL . '/assets/' . $path;
 	    }
 
 	    /*

@@ -16,7 +16,7 @@
 		{
 			
 			$router = new \AltoRouter();
-			$router->setBasePath(BASE_URL);
+			$router->setBasePath(W_BASE_URL);
 
 			foreach($this->routes as $route)
 			{
