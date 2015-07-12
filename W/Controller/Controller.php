@@ -2,7 +2,7 @@
 
 	namespace W\Controller;
 
-	use W\Security\AuthenticationManager;
+	use W\Security\AuthentificationManager;
 	use W\Security\AuthorizationManager;
 
 	class Controller 
@@ -24,6 +24,14 @@
 		{
 			$engine = new \League\Plates\Engine('app/templates');
 			$engine->loadExtension(new \W\Plates\PlatesExtensions());
+
+			//assign custom data to all templates
+			//accessible in templates with $w_user
+			$engine->addData(
+				array(
+					"w_user" => $this->getUser()
+				)
+			);
 
 			// Render a template
 			echo $engine->render($file, $data);
@@ -54,7 +62,7 @@
 		 */
 		public function getUser()
 		{
-			$authenticationManager = new AuthenticationManager();
+			$authenticationManager = new AuthentificationManager();
 			$user = $authenticationManager->getLoggedUser();
 			return $user;
 		}
