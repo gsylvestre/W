@@ -12,7 +12,6 @@
 		protected $usernameProperty = "username";
 		protected $emailProperty = "email";
 		protected $passwordProperty = "password";
-		protected $tokenProperty = "token";
 
 		public function __construct()
 		{
@@ -25,7 +24,6 @@
 			if (defined(W_DB_USERNAME_PROPERTY)) $this->usernameProperty = W_DB_USERNAME_PROPERTY;
 			if (defined(W_DB_EMAIL_PROPERTY)) $this->emailProperty = W_DB_EMAIL_PROPERTY;
 			if (defined(W_DB_PASSWORD_PROPERTY)) $this->passwordProperty = W_DB_PASSWORD_PROPERTY;
-			if (defined(W_DB_TOKEN_PROPERTY)) $this->tokenProperty = W_DB_TOKEN_PROPERTY;
 		}
 
 		public function isValidLoginInfo($usernameOrEmail, $plainPassword)
