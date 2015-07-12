@@ -8,6 +8,5 @@
 </head>
 <body>
 	<?=$this->section('main_content')?>
-	<?=$w_user; ?>
 </body>
 </html>

@@ -9,45 +9,7 @@
 
 		public function home()
 		{
-			//$this->allowTo("admin");
-			//echo \W\Security\StringUtils::hashPassword("yo");
-			$this->show("default/home", ["name" => "fdsf"]);
-		}
-
-		public function hometwo()
-		{
-			//$this->allowTo("admin");
-			echo \W\Security\StringUtils::randomString(50);
-			$this->show("default/home", ["name" => "fdsf"]);
-		}
-
-		public function aboutTest($id, $yo)
-		{
-			echo $id;
-			echo $yo;
-			die();
-		}
-
-		public function about()
-		{
-			echo "about !";	
-			$postManager = new \Manager\PostManager();
-			$postManager->delete(2);
-			$postManager->insert(
-				array(
-					"title" => "yo",
-					"content" => "dsajfala djlj lf",
-					"date_created" => date("Y-m-d H:i:s")
-				)
-			);
-			$postManager->update(
-				array(
-					"title" => "yo2222",
-					"date_created" => date("Y-m-d H:i:s")
-				), 4
-			);
-			$post = $postManager->find(4);
-			print_r($post);
+			$this->show("default/home");
 		}
 
 	}
