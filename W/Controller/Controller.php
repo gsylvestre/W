@@ -22,10 +22,11 @@
 		 */
 		public function show($file, array $data = array())
 		{
-			$templates = new \League\Plates\Engine('app/templates');
+			$engine = new \League\Plates\Engine('app/templates');
+			$engine->loadExtension(new \W\Plates\PlatesExtensions());
 
 			// Render a template
-			echo $templates->render($file, $data);
+			echo $engine->render($file, $data);
 		}
 
 		/**

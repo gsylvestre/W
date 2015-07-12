@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 
-	<link rel="stylesheet" type="text/css" href="public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?=$this->assetUrl('css/style.css'); ?>">
 	<title><?=$this->e($title);?></title>
 </head>
 <body>
