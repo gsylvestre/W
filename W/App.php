@@ -18,10 +18,7 @@
 			$router = new \AltoRouter();
 			$router->setBasePath(W_BASE_URL);
 
-			foreach($this->routes as $route)
-			{
-				$router->map($route[0], $route[1], $route[2]);
-			}
+			$router->addRoutes($this->routes);
 
 			$matcher = new \W\Router\AltoRouter\Matcher($router);
 			$matcher->match();
