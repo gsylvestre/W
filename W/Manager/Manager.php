@@ -51,7 +51,6 @@
 
 			$sql = "SELECT * FROM " . $this->table;
 			$sth = $this->dbh->prepare($sql);
-			$sth->bindValue(":id", $id);
 			$sth->execute();
 
 			return $sth->fetchAll();
