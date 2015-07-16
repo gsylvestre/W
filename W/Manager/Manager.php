@@ -23,7 +23,7 @@
 			if (substr($tableName, -1) != "s"){
 				$tableName .= "s";
 			}
-			$this->table = DB_TABLE_PREFIX . $tableName;
+			$this->table = W_DB_TABLE_PREFIX . $tableName;
 		}
 
 		public function setTable($table)
