@@ -22,7 +22,7 @@
 		 */
 		public function show($file, array $data = array())
 		{
-			$engine = new \League\Plates\Engine('app/templates');
+			$engine = new \League\Plates\Engine('../app/templates');
 			$engine->loadExtension(new \W\View\Plates\PlatesExtensions());
 
 			//assign custom data to all templates

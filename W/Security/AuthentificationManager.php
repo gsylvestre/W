@@ -83,7 +83,7 @@
 
 		public function refreshUser()
 		{
-			$userFromSession = $this->getLoggedUser()
+			$userFromSession = $this->getLoggedUser();
 			if ($userFromSession){
 				$userFromDb = $this->getUserById($userFromSession['id']);
 				if ($userFromDb){
