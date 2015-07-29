@@ -2,7 +2,6 @@
 
 	namespace W\Manager;
 
-
 	abstract class Manager 
 	{
 

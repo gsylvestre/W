@@ -5,6 +5,7 @@
 	class App 
 	{
 
+		protected $router;
 		protected $routes;
 
 		public function __construct(array $routes)
@@ -15,13 +16,21 @@
 		public function run()
 		{
 			
-			$router = new \AltoRouter();
-			$router->setBasePath(W_BASE_URL);
+			$this->router = new \AltoRouter();
+			$this->router->setBasePath(W_BASE_URL);
 
-			$router->addRoutes($this->routes);
+			foreach($this->routes as $route)
+			{
+				$this->router->map($route[0], $route[1], $route[2], $route[3]);
+			}
 
-			$matcher = new \W\Router\AltoRouter\Matcher($router);
+			$matcher = new \W\Router\AltoRouter\Matcher($this->router);
 			$matcher->match();
+		}
+
+		public function getRouter()
+		{
+			return $this->router;
 		}
 
 	}
