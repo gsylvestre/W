@@ -1,13 +1,13 @@
-<?php
+<?php 
 
 	//url
-	define("W_BASE_URL", "/formation/w");
+	define("W_BASE_URL", "");
 
-	//database
-    define("W_DB_HOST", "localhost");  
+   	//database connection infos
+	define("W_DB_HOST", "localhost");  
     define("W_DB_USER", "root");     
     define("W_DB_PASS", "");         
-    define("W_DB_NAME", "w"); 
+    define("W_DB_NAME", "w_test"); 
     define("W_DB_TABLE_PREFIX", "");
 
 	//user authentification
