@@ -15,5 +15,6 @@
 	define("W_DB_USERNAME_PROPERTY", "username");
 	define("W_DB_EMAIL_PROPERTY", "email");
 	define("W_DB_PASSWORD_PROPERTY", "password");
+	define("W_DB_ROLE_PROPERTY", "role");
 
     require("routes.php");
