@@ -30,6 +30,20 @@
 
 		public function isValidLoginInfo($usernameOrEmail, $plainPassword)
 		{
+			$foundUser = $this->getUserByUsernameOrEmail($usernameOrEmail);
+			if (!$foundUser){
+				return 0;
+			}
+
+			if (password_verify($plainPassword, $foundUser[$this->passwordProperty])){
+				return $foundUser['id'];
+			}
+
+			return 0;
+		}
+
+		public function getUserByUsernameOrEmail($usernameOrEmail)
+		{
 			$sql = "SELECT * FROM " . $this->table . 
 					" WHERE " . $this->usernameProperty . " = :username OR " . 
 					$this->emailProperty . " = :email LIMIT 1";
@@ -37,19 +51,47 @@
 			$sth = $dbh->prepare($sql);
 			$sth->bindValue(":username", $usernameOrEmail);
 			$sth->bindValue(":email", $usernameOrEmail);
-			$sth->execute();
-			$foundUser = $sth->fetch();
+			if ($sth->execute()){
+				$foundUser = $sth->fetch();
+				if ($foundUser){
+					return $foundUser;
+				}
+			}
 
-			if (!$foundUser){
+			return false;
+		}
+
+		public function getUserById($userId)
+		{
+			if (!is_numeric($userId)){
 				return false;
 			}
-
-			$hashedPassword = StringUtils::hashPassword($plainPassword);
-			$passwordMatch = StringUtils::stringEquals($hashedPassword, $foundUser[$this->passwordProperty]);
-			if ($passwordMatch){
-				return $foundUser;
+			$sql = "SELECT * FROM " . $this->table . 
+					" WHERE id = :userId LIMIT 1";
+			$dbh = W\Manager\ConnectionManager::getDbh();
+			$sth = $dbh->prepare($sql);
+			$sth->bindValue(":userId", $userId);
+			if ($sth->execute()){
+				$foundUser = $sth->fetch();
+				if ($foundUser){
+					return $foundUser;
+				}
 			}
 
+			return false;
+		}
+
+		public function refreshUser()
+		{
+			$userFromSession = $this->getLoggedUser()
+			if ($userFromSession){
+				$userFromDb = $this->getUserById($userFromSession['id']);
+				if ($userFromDb){
+					$session = new SessionManager();
+					$session->set("user", $userFromDb);
+					return true;
+				}
+			}
 			return false;
 		}
 
