@@ -15,6 +15,9 @@
 			$this->user = $session->get("user");
 		}
 
+		/**
+		 * Vérifie les droits d'accès de l'utilisateur en fonction de son rôle
+		 */
 		public function isGranted($role)
 		{
 			if (!empty($this->user[W_DB_ROLE_PROPERTY]) && $this->user[W_DB_ROLE_PROPERTY] === $role){

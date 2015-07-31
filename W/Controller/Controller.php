@@ -9,7 +9,7 @@
 	{
 
 		/**
-		 * Redirect to an URI
+		 * Redirige vers une URI
 		 */
 		public function redirect($url)
 		{
@@ -18,7 +18,7 @@
 		}
 
 		/**
-		 * Show template file
+		 * Affiche un template
 		 */
 		public function show($file, array $data = array())
 		{
@@ -38,7 +38,7 @@
 		}
 
 		/**
-		 * Show a 403 page
+		 * Affiche une page 403
 		 */
 		public function showForbidden()
 		{
@@ -48,7 +48,7 @@
 		}
 
 		/**
-		 * Show a 404 page
+		 * Affiche une page 404
 		 */
 		public function showNotFound()
 		{
@@ -58,7 +58,7 @@
 		}
 
 		/**
-		 * Get current logged in user from session
+		 * Récupère l'utilisateur actuellement connecté
 		 */
 		public function getUser()
 		{
@@ -68,7 +68,7 @@
 		}
 
 		/**
-		 * Allow ressource access only to specific roles
+		 * Autorise l'accès à un ou plusieurs rôles
 		 */
 		public function allowTo($roles)
 		{

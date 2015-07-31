@@ -7,17 +7,26 @@
 
 	class PlatesExtensions implements ExtensionInterface
 	{
+		/**
+		 * Enregistre les nouvelles fonctions dans Plates
+		 */
 	    public function register(Engine $engine)
 	    {
 	        $engine->registerFunction('assetUrl', [$this, 'assetUrl']);
 	        $engine->registerFunction('url', [$this, 'generateUrl']);
 	    }
 
+	    /**
+	     * Retourne l'URI absolue d'un asset
+	     */
 	    public function assetUrl($path)
 	    {
 	        return "//" . $_SERVER['SERVER_NAME'] . W_BASE_URL . '/assets/' . $path;
 	    }
 
+	    /**
+	     * Retourne l'URI absolue d'une route nommée
+	     */
 	    public function generateUrl($routeName, array $params = array())
 	    {
 	    	global $app;

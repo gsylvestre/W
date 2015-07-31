@@ -8,17 +8,26 @@
 	class AuthentificationManager
 	{
 
+		/**
+		 * Données par défaut pour le système d'authentification
+		 */
 		protected $table = "users";
 		protected $usernameProperty = "username";
 		protected $emailProperty = "email";
 		protected $passwordProperty = "password";
 		protected $roleProperty = "role";
 
+		/**
+		 * Constructeur
+		 */
 		public function __construct()
 		{
 			$this->getConfigValues();
 		}
 
+		/**
+		 * Écrase les configurations par défaut par les constantes définies par l'utilisateur (config.php)
+		 */
 		protected function getConfigValues()
 		{
 			if (defined(W_DB_USER_TABLE)) $this->table = W_DB_USER_TABLE;
@@ -28,6 +37,9 @@
 			if (defined(W_DB_ROLE_PROPERTY)) $this->roleProperty = W_DB_ROLE_PROPERTY;
 		}
 
+		/**
+		 * Vérifie qu'une combinaison d'email/username et mot de passe (en clair) sont présents en bdd et valides
+		 */
 		public function isValidLoginInfo($usernameOrEmail, $plainPassword)
 		{
 			$foundUser = $this->getUserByUsernameOrEmail($usernameOrEmail);
@@ -42,6 +54,9 @@
 			return 0;
 		}
 
+		/**
+		 * Récupère un utilisateur en fonction de son email ou de son pseudo
+		 */
 		public function getUserByUsernameOrEmail($usernameOrEmail)
 		{
 			$sql = "SELECT * FROM " . $this->table . 
@@ -61,6 +76,9 @@
 			return false;
 		}
 
+		/**
+		 * Récupère un utilisateur en fonction de son identifiant
+		 */
 		public function getUserById($userId)
 		{
 			if (!is_numeric($userId)){
@@ -81,6 +99,9 @@
 			return false;
 		}
 
+		/**
+		 * Utilise les données utilisateurs présentes en base pour mettre à jour les données en session
+		 */
 		public function refreshUser()
 		{
 			$userFromSession = $this->getLoggedUser();
@@ -92,25 +113,34 @@
 					return true;
 				}
 			}
+
 			return false;
 		}
 
+		/**
+		 * Connecte un utilisateur
+		 */
 		public function logUserIn($user)
 		{
 			$session = new SessionManager();
 			$session->set("user", $user);
 		}
 
+		/**
+		 * Déconnecte un utilisateur
+		 */
 		public function logUserOut()
 		{
 			$session = new SessionManager();
 			$session->unset("user");
 		}
 
+		/**
+		 * Retourne les données présente en session sur l'utilisateur connecté
+		 */
 		public function getLoggedUser()
 		{
 			$session = new SessionManager();
-			$user = $session->get("user");
-			return $user;
+			return $session->get("user");
 		}
 	}

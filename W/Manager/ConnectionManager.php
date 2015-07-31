@@ -10,6 +10,9 @@
 
 		private static $dbh;
 
+		/**
+		 * Crée une connexion ou la retourne si présente
+		 */
 		public static function getDbh()
 		{
 			if (!self::$dbh){
@@ -18,6 +21,9 @@
 			return self::$dbh;
 		}
 
+		/**
+		 * Crée une nouvelle connexion à la base
+		 */
 		public static function setNewDbh()
 		{
 			try {

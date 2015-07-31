@@ -18,7 +18,7 @@
 		}
 
 		/**
-		 * Match current route and call controller method
+		 * Cherche une correspondance entre l'URL et les routes, et appelle la méthode appropriée
 		 */
 		public function match()
 		{
@@ -34,7 +34,7 @@
 				
 				$controller = new $controllerFullName();
 				
-				//call method from controller, with url params passed as method's arguments
+				//appelle la méthode, en lui passant les paramètres d'URL en arguments 
 				call_user_func_array(array($controller, $methodName), $match['params']);
 			}
 			else {
