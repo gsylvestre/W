@@ -38,7 +38,7 @@
 				call_user_func_array(array($controller, $methodName), $match['params']);
 			}
 			else {
-				echo "404";
+				die("Aucune route ne correspond à cette URL");
 			}
 
 		}
