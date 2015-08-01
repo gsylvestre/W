@@ -5,14 +5,10 @@
 	abstract class Manager 
 	{
 
-		/**
-		 * Nom de la table
-		 */
+		/** @var string $table Le nom de la table */
 		protected $table;
 
-		/**
-		 * Connexion à la base
-		 */
+		/** @var \Pdo $dbh Connexion à la base de données */
 		protected $dbh;
 
 		/**
@@ -26,6 +22,7 @@
 
 		/**
 		 * Déduit le nom de la table en fonction du nom du Manager
+		 * @return W\Manager $this
 		 */
 		private function setTableFromClassName()
 		{
@@ -36,18 +33,24 @@
 				$tableName .= "s";
 			}
 			$this->table = W_DB_TABLE_PREFIX . $tableName;
+
+			return $this;
 		}
 
 		/**
-		 * Écrase le nom de la table
+		 * Définit le nom de la table
+		 * @param string $table Nom de la table
+		 * @return W\Manager $this
 		 */
 		public function setTable($table)
 		{
 			$this->table = $table;
+			return $this;
 		}
  
 		/**
-		 * Récupère une ligne de table en fonction de l'identifiant
+		 * @param  integer Identifiant
+		 * @return mixed Les données (tableau ou objet)
 		 */
 		public function find($id)
 		{
