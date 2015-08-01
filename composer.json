@@ -2,8 +2,8 @@
     "name": "guillaume/w",
     "description": "WF3 framework",
     "require": {
-        "altorouter/altorouter": "1.*",
-        "league/plates": "3.*",
+        "altorouter/altorouter": "^1.0",
+        "league/plates": "^3.0",
         "ircmaxell/random-lib": "^1.1",
         "ircmaxell/password-compat": "^1.0",
         "symfony/console": "^2.7"
