@@ -18,7 +18,7 @@
 	    protected function configure()
 	    {
 	        $this
-	            ->setName('w:install')
+	            ->setName('install')
 	            ->setDescription('Configure you app, install base tables for security system')
 	        ;
 	    }
@@ -137,7 +137,8 @@
 
 			$pdo = new \PDO("mysql:host=".W_DB_HOST, W_DB_USER, W_DB_PASS);
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-			$pdo->query("CREATE DATABASE IF NOT EXISTS ".W_DB_NAME);
+			$pdo->query("CREATE DATABASE IF NOT EXISTS ".W_DB_NAME. 
+						" DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
 
 			$connectionManager = new ConnectionManager();
 			$dbh = $connectionManager->getDbh();
