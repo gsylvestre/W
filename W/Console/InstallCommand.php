@@ -135,9 +135,9 @@
 			$passwordField = W_DB_PASSWORD_PROPERTY;
 			$roleField = W_DB_ROLE_PROPERTY;
 
-			$pdo = new \PDO("mysql:host=$dbHost", $dbUser, $dbPassword);
+			$pdo = new \PDO("mysql:host=".W_DB_HOST, W_DB_USER, W_DB_PASS);
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-			$pdo->query("CREATE DATABASE IF NOT EXISTS $dbName");
+			$pdo->query("CREATE DATABASE IF NOT EXISTS ".W_DB_NAME);
 
 			$connectionManager = new ConnectionManager();
 			$dbh = $connectionManager->getDbh();
