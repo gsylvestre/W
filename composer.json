@@ -1,6 +1,6 @@
 {
-    "name": "guillaume/w",
-    "description": "WF3 framework",
+    "name": "wf3/w"
+    "description": "Framework pédagogique de la Web Force 3",
     "require": {
         "altorouter/altorouter": "^1.0",
         "league/plates": "^3.0",
@@ -8,12 +8,6 @@
         "ircmaxell/password-compat": "^1.0",
         "symfony/console": "^2.7"
     },
-    "authors": [
-        {
-            "name": "gsylvestre",
-            "email": "gsylvestre@gmail.com"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "W\\": "W/",
