@@ -44,6 +44,7 @@ Il contient également le contrôleur frontal de l'application.
 
 ## Créer une page
 Pour créer une page simple avec W, vous avez besoin de 3 éléments : 
+
 * Une route
 * Une méthode de contrôleur
 * Un template
@@ -54,6 +55,7 @@ Les routes permettent de faire le lien entre l'URL et une méthode spécifique d
 W utilise [AltoRouter](http://altorouter.com/ AltoRouter), un composant de routage. N'hésitez pas à en consulter [la documentation](http://altorouter.com/usage/install.html Documentation de AltoRouter). 
 
 Les routes sont définie dans le fichier `app/routes.php`, dans le tableau `$w_routes`. Chaque route est elle-même un tableau, contenant les données suivantes : 
+
 1. La ou les méthodes HTTP
 2. Le pattern d'URL
 3. Le contrôleur et la méthode à appeler
@@ -65,11 +67,13 @@ Les méthodes HTTP sont séparées par des barres verticales `|`, les patterns d
 
 ### Créer une méthode de contrôleur
 Les contrôleurs doivent suivre une certaine convention : 
+
 1. Ils se trouvent dans le dossier `app/Controller/`
 2. Le nom de la classe est suffixé par `Controller`
 3. Ils doivent normalement hériter de `\W\Controller\Controller`
 
 Les méthodes des contrôleur devraient, après avoir effectuer un éventuel traitement, soit effectuer une redirection, soit afficher un template avec la méthode `show()`. Cette méthode accepte deux paramètres : 
+
 1. Le chemin et le nom du template, sans l'extension
 2. Un tableau de variable à rendre disponible au template
 
@@ -85,7 +89,6 @@ Il est habituel de n'avoir que quelques layouts (voir un seul) pour vos applicat
 Dans app/routes.php : 
 ```
 <?php
-// app/routes.php
 
 $w_routes = array(
 	['GET|POST', '/contact/', 'Default#contact', 'contact'],
