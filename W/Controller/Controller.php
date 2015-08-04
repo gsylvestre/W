@@ -10,30 +10,44 @@
 
 		/**
 		 * Redirige vers une URI
+		 * @param  string $uri URI vers laquelle rediriger
 		 */
-		public function redirect($url)
+		public function redirect($uri)
 		{
-			header("Location: $url");
-			die();
+			if (filter_var($uri, FILTER_VALIDATE_URL)){
+				header("Location: $uri");
+				die();
+			}
+
+			return false;
 		}
 
 		/**
 		 * Affiche un template
+		 * 
+		 * @param  string $file Chemin vers le template, relatif à app/templates/
+		 * @param  array  $data Données à rendre disponibles à la vue
 		 */
 		public function show($file, array $data = array())
 		{
+			//incluant le chemin vers nos templates
 			$engine = new \League\Plates\Engine('../app/templates');
+
+			//charge nos extensions (nos fonctions personnalisées)
 			$engine->loadExtension(new \W\View\Plates\PlatesExtensions());
 
-			//assign custom data to all templates
-			//accessible in templates with $w_user
+			//rend certaines données disponibles à tous les templates
+			//accessible avec $w_user dans les fichiers de vue
 			$engine->addData(
 				array(
 					"w_user" => $this->getUser()
 				)
 			);
 
-			// Render a template
+			//retire l'éventuelle extension .php
+			$file = str_replace(".php", "", $file);
+
+			// Affiche le template
 			echo $engine->render($file, $data);
 		}
 
@@ -69,6 +83,8 @@
 
 		/**
 		 * Autorise l'accès à un ou plusieurs rôles
+		 * 		
+		 * @param  mixed $roles Tableau de rôles, ou chaîne pour un seul
 		 */
 		public function allowTo($roles)
 		{

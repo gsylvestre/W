@@ -28,7 +28,8 @@
 			if ($match){
 
 				$callableParts = explode("#", $match["target"]);
-				$controllerName = $callableParts[0];
+				//retire l'optionnel suffixe 'Controller', pour le remettre ci-dessous
+				$controllerName = ucfirst(str_replace('Controller', '', $callableParts[0]));
 				$methodName = $callableParts[1];
 				$controllerFullName = 'Controller\\'.$controllerName."Controller";
 				
