@@ -44,7 +44,7 @@ class FlashManager
 	 */
 	public function getFlashes($type = null)
 	{
-		if (!$this->sessionManager->hasFlash()){
+		if (!$this->hasFlash()){
 			return null;
 		}
 
@@ -55,7 +55,7 @@ class FlashManager
 			return $flashes;
 		}
 
-		if ($this->sessionManager->hasFlash($type)){
+		if ($this->hasFlash($type)){
 			unset($_SESSION['flashes'][$type]);
 			return $flashes[$type];
 		}
