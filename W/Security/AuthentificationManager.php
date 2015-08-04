@@ -62,7 +62,7 @@
 			$sql = "SELECT * FROM " . $this->table . 
 					" WHERE " . $this->usernameProperty . " = :username OR " . 
 					$this->emailProperty . " = :email LIMIT 1";
-			$dbh = W\Manager\ConnectionManager::getDbh();
+			$dbh = \W\Manager\ConnectionManager::getDbh();
 			$sth = $dbh->prepare($sql);
 			$sth->bindValue(":username", $usernameOrEmail);
 			$sth->bindValue(":email", $usernameOrEmail);
@@ -86,7 +86,7 @@
 			}
 			$sql = "SELECT * FROM " . $this->table . 
 					" WHERE id = :userId LIMIT 1";
-			$dbh = W\Manager\ConnectionManager::getDbh();
+			$dbh = \W\Manager\ConnectionManager::getDbh();
 			$sth = $dbh->prepare($sql);
 			$sth->bindValue(":userId", $userId);
 			if ($sth->execute()){
