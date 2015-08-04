@@ -22,6 +22,16 @@ class Controller
 		return false;
 	}
 
+
+	public function redirectToRoute($routeName, $params = array())
+	{
+		global $app;
+    	$router = $app->getRouter();
+    	$uri = $router->generate($routeName, $params);
+    	return $this->redirect($uri);
+	}
+
+
 	/**
 	 * Affiche un template
 	 * 
