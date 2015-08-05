@@ -38,6 +38,7 @@
 				//appelle la méthode, en lui passant les paramètres d'URL en arguments 
 				call_user_func_array(array($controller, $methodName), $match['params']);
 			}
+			//404
 			else {
 				$controller = new \W\Controller\Controller();
 				$controller->showNotFound();

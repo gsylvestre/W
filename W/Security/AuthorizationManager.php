@@ -24,7 +24,8 @@ class AuthorizationManager
 
 		//si utilisateur non connecté
 		if (!$loggedUser){
-			return false;
+			//redirige vers le login
+			$this->redirectToLogin();
 		}
 
 		if (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === $role){
@@ -32,6 +33,15 @@ class AuthorizationManager
 		}
 
 		return false;
+	}
+
+	/**
+	 * Redirige vers la page de connexion, assume une route nommée 'login'
+	 */
+	public function redirectToLogin()
+	{
+		$controller = new \W\Controller\Controller();
+		$controller->redirectToRoute('login');
 	}
 
 }

@@ -12,6 +12,8 @@ class AdminController extends Controller
 	 */
 	public function home()
 	{
+		$this->allowTo('yo');
+
 		$postManager = new PostManager();
 		$postsCount = $postManager->countAll();
 
