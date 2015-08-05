@@ -15,6 +15,7 @@ class PlatesExtensions implements ExtensionInterface
         $engine->registerFunction('assetUrl', [$this, 'assetUrl']);
         $engine->registerFunction('url', [$this, 'generateUrl']);
         $engine->registerFunction('getFlashes', [$this, 'getFlashes']);
+        $engine->registerFunction('hasFlashes', [$this, 'hasFlashes']);
     }
 
     /**
@@ -42,5 +43,14 @@ class PlatesExtensions implements ExtensionInterface
     {
     	$flashManager = new \W\Session\FlashManager();
     	return $flashManager->getFlashes($type);
+    }
+
+    /**
+     * Vérifie si des messages flash sont disponibles
+     */
+    public function hasFlashes($type = null)
+    {
+        $flashManager = new \W\Session\FlashManager();
+        return $flashManager->hasFlashes($type);
     }
 }

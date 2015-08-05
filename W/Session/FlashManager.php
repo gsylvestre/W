@@ -14,7 +14,7 @@ class FlashManager
 	{
 		//initialise le tableau vide si non présent
 		if (!isset($_SESSION['flashes'][$type])){
-			$_SESSION'flashes'][$type] = [];
+			$_SESSION['flashes'][$type] = [];
 		}
 
 		//ajoute le message
@@ -54,7 +54,7 @@ class FlashManager
 	 */
 	public function hasFlash($type = null)
 	{
-		if (!$_SESSION["flashes"]){
+		if (empty($_SESSION["flashes"])){
 			return false;
 		}
 		//sans type, et flashes présent
