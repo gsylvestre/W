@@ -1,20 +1,24 @@
 <?php 
 
+$w_config = [
 	//url
-	define("W_BASE_URL", "");
+	'base_url' => '',
 
    	//database connection infos
-	define("W_DB_HOST", "localhost");  
-    define("W_DB_USER", "root");     
-    define("W_DB_PASS", "");         
-    define("W_DB_NAME", "w_test"); 
-    define("W_DB_TABLE_PREFIX", "");
+	'db_host' => 'localhost',
+    'db_user' => 'root',
+    'db_pass' => '',
+    'db_name' => '',
+    'db_table_prefix' => '',
 
-	//user authentification
-	define("W_DB_USER_TABLE", "users");
-	define("W_DB_USERNAME_PROPERTY", "username");
-	define("W_DB_EMAIL_PROPERTY", "email");
-	define("W_DB_PASSWORD_PROPERTY", "password");
-	define("W_DB_ROLE_PROPERTY", "role");
+	//security
+	'security_user_table' => 'users',
+	'security_username_property' => 'username',
+	'security_email_property' => 'email',
+	'security_password_property' => 'password',
+	'security_role_property' => 'role',
 
-    require("routes.php");
+];
+
+require('routes.php');
+

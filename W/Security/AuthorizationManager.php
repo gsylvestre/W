@@ -1,30 +1,37 @@
 <?php
 
-	namespace W\Security;
+namespace W\Security;
 
-	use \W\Session\SessionManager;
+use \W\Session\SessionManager;
+use \W\Security\AuthentificationManager;
 
-	class AuthorizationManager
+class AuthorizationManager
+{
+
+	/**
+	 * Vérifie les droits d'accès de l'utilisateur en fonction de son rôle
+	 * @param  string  $role Le rôle pour lequel on souhaite vérifier les droits d'accès
+	 * @return boolean       True si droit d'accès, false sinon
+	 */
+	public function isGranted($role)
 	{
+		global $app;
+		$roleProperty = $app->getConfig('security_role_property');
 
-		private $user;
+		//récupère les données en session sur l'utilisateur
+		$authentificationManager = new AuthentificationManager();
+		$loggedUser = $authentificationManager->getLoggedUser();
 
-		public function __construct()
-		{
-			$session = new SessionManager();
-			$this->user = $session->get("user");
-		}
-
-		/**
-		 * Vérifie les droits d'accès de l'utilisateur en fonction de son rôle
-		 */
-		public function isGranted($role)
-		{
-			if (!empty($this->user[W_DB_ROLE_PROPERTY]) && $this->user[W_DB_ROLE_PROPERTY] === $role){
-				return true;
-			}
-
+		//si utilisateur non connecté
+		if (!$loggedUser){
 			return false;
 		}
 
+		if (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === $role){
+			return true;
+		}
+
+		return false;
 	}
+
+}

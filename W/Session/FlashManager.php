@@ -2,18 +2,8 @@
 
 namespace W\Session;
 
-use W\Session\SessionManager;
-
 class FlashManager 
 {
-
-	protected $sessionManager;
-
-	public function __construct()
-	{
-		$this->sessionManager = new SessionManager();
-	}
-
 
 	/**
 	 * Ajoute un message flash
@@ -22,19 +12,13 @@ class FlashManager
 	 */
 	public function addFlash($message, $type)
 	{
-		//ajoute un tableau vide si c'est le premier flash
-		if (!$this->sessionManager->get('flashes')){
-			$this->sessionManager->set('flashes', []);
-		}
-
-		//ajoute ce type si non-présent
-		$flashes = $this->sessionManager->get('flashes');
-		if (!isset($flashes[$type])){
-			$flashes[$type] = [];
+		//initialise le tableau vide si non présent
+		if (!isset($_SESSION['flashes'][$type])){
+			$_SESSION'flashes'][$type] = [];
 		}
 
 		//ajoute le message
-		$flashes[$type][] = $message;
+		$_SESSION['flashes'][$type][] = $message;
 	}
 
 	/**
@@ -48,10 +32,10 @@ class FlashManager
 			return null;
 		}
 
-		$flashes = $this->sessionManager->get("flashes");
+		$flashes = $_SESSION["flashes"];
 
 		if (!$type){
-			$this->sessionManager->unset("flashes");
+			unset($_SESSION["flashes"]);
 			return $flashes;
 		}
 
@@ -70,14 +54,15 @@ class FlashManager
 	 */
 	public function hasFlash($type = null)
 	{
-		$flashes = $this->sessionManager->get('flashes');
-		if (!$flashes){
+		if (!$_SESSION["flashes"]){
 			return false;
 		}
-		if (!$type && !empty($flashes)){
+		//sans type, et flashes présent
+		if (!$type && !empty($_SESSION["flashes"])){
 			return true;
 		}
-		if ($type && array_key_exists($type, $flashes) && !empty($flashes[$type])){
+		//avec type, et type présent
+		if ($type && array_key_exists($type, $_SESSION["flashes"]) && !empty($_SESSION["flashes"][$type])){
 			return true;
 		}
 
