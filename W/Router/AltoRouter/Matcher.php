@@ -39,7 +39,8 @@
 				call_user_func_array(array($controller, $methodName), $match['params']);
 			}
 			else {
-				die("Aucune route ne correspond à cette URL");
+				$controller = new \W\Controller\Controller();
+				$controller->showNotFound();
 			}
 
 		}
