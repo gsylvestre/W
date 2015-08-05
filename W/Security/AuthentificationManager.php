@@ -13,13 +13,17 @@ class AuthentificationManager
 	 */
 	public function isValidLoginInfo($usernameOrEmail, $plainPassword)
 	{
+
+		global $app;
+
 		$userManager = new UserManager();
+		$usernameOrEmail = strip_tags(trim($usernameOrEmail));
 		$foundUser = $userManager->getUserByUsernameOrEmail($usernameOrEmail);
 		if (!$foundUser){
 			return 0;
 		}
 
-		if (password_verify($plainPassword, $foundUser[$this->passwordProperty])){
+		if (password_verify($plainPassword, $foundUser[$app->getConfig('security_password_property')])){
 			return $foundUser['id'];
 		}
 
