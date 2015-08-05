@@ -111,16 +111,4 @@ class Controller
 		$this->showForbidden();
 	}
 
-
-	/**
-	 * Raccourci pour ajouter un message flash
-	 * @param string $message Le message flash
-	 * @param string $type    Le type de message (notice, error, etc.)
-	 */
-	public function addFlash($message, $type = "error")
-	{
-		$flashManager = new \W\Session\FlashManager();
-		$flashManager->addFlash($message, $type);
-	}
-
 }
