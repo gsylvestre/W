@@ -55,6 +55,7 @@ class Controller
 
 		// Affiche le template
 		echo $engine->render($file, $data);
+		die();
 	}
 
 	/**
@@ -62,9 +63,15 @@ class Controller
 	 */
 	public function showForbidden()
 	{
-		//@todo 403
 		header('HTTP/1.0 403 Forbidden');
-		die("403");
+
+		$file = '../app/templates/w_errors/403.php';
+		if (file_exists($file)){
+			$this->show('w_errors/403');
+		}
+		else {
+			die("403");
+		}
 	}
 
 	/**
@@ -74,7 +81,14 @@ class Controller
 	{
 		//@todo 404
 		header('HTTP/1.0 404 Not Found');
-		die("404");
+
+		$file = '../app/templates/w_errors/404.php';
+		if (file_exists($file)){
+			$this->show('w_errors/404');
+		}
+		else {
+			die("404");
+		}	
 	}
 
 	/**
