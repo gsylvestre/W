@@ -16,6 +16,11 @@
 					<li><a href="<?= $this->url('home') ?>" title="">Accueil</a></li>
 					<li><a href="<?= $this->url('adminHome') ?>" title="">Admin</a></li>
 					<li><a href="<?= $this->url('addAdmin') ?>" title="">Ajouter un administrateur</a></li>
+					<?php if ($w_user): ?>
+					<li><a href="<?= $this->url('logout') ?>" title="">Déconnexion</a></li>
+					<?php else: ?>
+					<li><a href="<?= $this->url('login') ?>" title="">Connexion</a></li>
+					<?php endif; ?>
 				</ul>
 			</nav>
 		</header>
@@ -23,7 +28,7 @@
 		<section>
 			<?=$this->section('main_content')?>
 		</section>
-		
+
 		<footer>
 		</footer>
 	</div>
