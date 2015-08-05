@@ -2,5 +2,8 @@
 	
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'home'],
-		['GET|POST', '/test/[i:id]/', 'Default#test', 'test']
+		['GET', '/post/[i:id]/', 'Default#postDetails', 'postDetails'],
+		['GET', '/admin/', 'Admin#home', 'adminHome'],
+		['GET', '/admin/administrateurs/ajout/', 'Admin#addAdmin', 'addAdmin'],
+		['POST', '/admin/administrateurs/ajout/', 'Admin#addAdminHandler', 'addAdminHandler'],
 	);
