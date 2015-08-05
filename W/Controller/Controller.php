@@ -14,12 +14,8 @@ class Controller
 	 */
 	public function redirect($uri)
 	{
-		if (filter_var($uri, FILTER_VALIDATE_URL)){
-			header("Location: $uri");
-			die();
-		}
-
-		return false;
+		header("Location: $uri");
+		die();	
 	}
 
 
