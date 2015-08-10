@@ -12,7 +12,8 @@ class AdminController extends Controller
 	 */
 	public function home()
 	{
-		$this->allowTo('yo');
+		//réserve cette page seulement aux utilisateurs connectés ayant le rôle "some_role"
+		$this->allowTo('some_role');
 
 		$postManager = new PostManager();
 		$postsCount = $postManager->countAll();
