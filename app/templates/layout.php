@@ -30,7 +30,6 @@
 		</section>
 
 		<footer>
-			<?php debug($w_user); ?>
 		</footer>
 	</div>
 </body>
