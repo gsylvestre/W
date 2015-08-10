@@ -34,7 +34,7 @@ class AdminController extends Controller
 	 */
 	public function addAdminHandler()
 	{
-		//print_r($_POST);
+		debug($_POST);
 
 		//boucle ninja
 		//comme extract(), mais avec sécurisation des données
