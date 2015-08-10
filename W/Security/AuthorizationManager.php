@@ -15,7 +15,7 @@ class AuthorizationManager
 	 */
 	public function isGranted($role)
 	{
-		global $app;
+		$app = getApp();
 		$roleProperty = $app->getConfig('security_role_property');
 
 		//récupère les données en session sur l'utilisateur
@@ -40,7 +40,7 @@ class AuthorizationManager
 	 */
 	public function redirectToLogin()
 	{
-		global $app;
+		$app = getApp();
 
 		$controller = new \W\Controller\Controller();
 		$controller->redirectToRoute($app->getConfig('security_login_route_name'));

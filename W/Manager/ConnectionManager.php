@@ -26,7 +26,7 @@ class ConnectionManager
 	 */
 	public static function setNewDbh()
 	{
-		global $app;
+		$app = getApp();
 		
 		try {
 		    //connexion à la base avec la classe PDO et le dsn

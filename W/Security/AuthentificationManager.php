@@ -14,7 +14,7 @@ class AuthentificationManager
 	public function isValidLoginInfo($usernameOrEmail, $plainPassword)
 	{
 
-		global $app;
+		$app = getApp();
 
 		$userManager = new UserManager();
 		$usernameOrEmail = strip_tags(trim($usernameOrEmail));

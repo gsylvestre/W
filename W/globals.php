@@ -14,4 +14,17 @@ namespace {
 		echo '</pre>';
 	}
 
+	/**
+	 * Retourne l'instance de l'application depuis l'espace global
+	 * @return \W\App L'application
+	 */
+	function getApp()
+	{
+		if (!empty($GLOBALS['app'])){
+			return $GLOBALS['app'];
+		}
+
+		return null;
+	}
+
 }

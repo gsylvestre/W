@@ -26,7 +26,7 @@ abstract class Manager
 	 */
 	private function setTableFromClassName()
 	{
-		global $app;
+		$app = getApp();
 
 		$className = get_class($this);
 		$tableName = str_replace("Manager", "", $className);

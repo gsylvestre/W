@@ -29,7 +29,7 @@ class PlatesExtensions implements ExtensionInterface
      */
     public function generateUrl($routeName, array $params = array())
     {
-    	global $app;
+    	$app = getApp();
     	$router = $app->getRouter();
     	return $router->generate($routeName, $params);
     }

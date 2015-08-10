@@ -21,7 +21,7 @@ class Controller
 
 	public function redirectToRoute($routeName, $params = array())
 	{
-		global $app;
+		$app = getApp();
     	$router = $app->getRouter();
     	$uri = $router->generate($routeName, $params);
     	return $this->redirect($uri);

@@ -11,7 +11,7 @@ class UserManager extends Manager
 	public function getUserByUsernameOrEmail($usernameOrEmail)
 	{
 
-		global $app;
+		$app = getApp();
 
 		$sql = "SELECT * FROM " . $app->getConfig('security_user_table') . 
 				" WHERE " . $app->getConfig('security_username_property') . " = :username OR " . 
