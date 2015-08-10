@@ -21,12 +21,9 @@ git clone https://github.com/WebForce3Admin/FrameworkPedagogique.git votre_nouve
 cd votre_nouveau_dossier/
 composer install
 ```
-* Lancer la commande d'installation :
-```
-php W/console install
-```
+* Congifurez votre application dans `app/config.php` et `app/routes.php`
 
-Naviguez vers http://localhost/votre_nouveau_dossier/public/.
+Naviguez vers http://localhost/votre_nouveau_dossier/public/
 
 ---
 
