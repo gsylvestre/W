@@ -18,6 +18,7 @@ $w_config = [
 	'security_password_property' => 'password',
 	'security_role_property' => 'role',
 
+	'security_login_route_name' => 'login',
 ];
 
 require('routes.php');

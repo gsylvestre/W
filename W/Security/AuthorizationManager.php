@@ -36,12 +36,14 @@ class AuthorizationManager
 	}
 
 	/**
-	 * Redirige vers la page de connexion, assume une route nommée 'login'
+	 * Redirige vers la page de connexion
 	 */
 	public function redirectToLogin()
 	{
+		global $app;
+
 		$controller = new \W\Controller\Controller();
-		$controller->redirectToRoute('login');
+		$controller->redirectToRoute($app->getConfig('security_login_route_name'));
 	}
 
 }
