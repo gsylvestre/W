@@ -139,8 +139,6 @@ abstract class Manager
 		$sql = substr($sql, 0, -2);
 		$sql .= " WHERE id = :id";
 
-		echo $sql;
-
 		$sth = $this->dbh->prepare($sql);
 		foreach($data as $key => $value){
 			$value = ($stripTags) ? strip_tags($value) : $value;
