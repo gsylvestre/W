@@ -5,6 +5,11 @@
 	class StringUtils 
 	{
 
+		/**
+		 * Returns a secure random string, url safe
+		 * @param  integer $length Length of the string
+		 * @return string $string The generated string
+		 */
 		public static function randomString($length = 80)
 		{
 			$possibleChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-";
