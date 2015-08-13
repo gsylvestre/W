@@ -2,6 +2,9 @@
 
 namespace W;
 
+/**
+ * Gère la configuration et exécute le routeur
+ */
 class App 
 {
 	/** @var array Contient le tableau de configuration complet */
