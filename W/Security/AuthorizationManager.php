@@ -5,6 +5,9 @@ namespace W\Security;
 use \W\Session\SessionManager;
 use \W\Security\AuthentificationManager;
 
+/**
+ * Gère l'accès aux pages en fonction des droits utilisateurs
+ */
 class AuthorizationManager
 {
 

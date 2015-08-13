@@ -2,11 +2,16 @@
 
 namespace W\Manager;
 
+/**
+ * Classe requise par l'AuthentificationManager, éventuellement à extender par la UserManager de l'appli
+ */
 class UserManager extends Manager
 {
 
 	/**
 	 * Récupère un utilisateur en fonction de son email ou de son pseudo
+	 * @param string $usernameOrEmail Le pseudo ou l'email d'un utilisateur
+	 * @return mixed L'utilisateur, ou false si non trouvé
 	 */
 	public function getUserByUsernameOrEmail($usernameOrEmail)
 	{

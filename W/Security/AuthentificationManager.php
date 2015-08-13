@@ -10,6 +10,9 @@ class AuthentificationManager
 
 	/**
 	 * Vérifie qu'une combinaison d'email/username et mot de passe (en clair) sont présents en bdd et valides
+	 * @param  string $usernameOrEmail Le pseudo ou l'email à test
+	 * @param  string $plainPassword Le mot de passe en clair à tester
+	 * @return  int  0 si invalide, l'identifiant de l'utilisateur si valide
 	 */
 	public function isValidLoginInfo($usernameOrEmail, $plainPassword)
 	{
@@ -24,7 +27,7 @@ class AuthentificationManager
 		}
 
 		if (password_verify($plainPassword, $foundUser[$app->getConfig('security_password_property')])){
-			return $foundUser['id'];
+			return (int) $foundUser['id'];
 		}
 
 		return 0;
@@ -32,9 +35,12 @@ class AuthentificationManager
 
 	/**
 	 * Connecte un utilisateur
+	 * @param  array $user Le tableau contenant les données utilisateur
 	 */
 	public function logUserIn($user)
 	{
+		//retire le mot de passe de la session
+		unset( $user[$app->getConfig('security_password_property')] );
 		$_SESSION["user"] = $user;
 	}
 
@@ -50,6 +56,7 @@ class AuthentificationManager
 
 	/**
 	 * Retourne les données présente en session sur l'utilisateur connecté
+	 * @return  mixed Le tableau des données utilisateur, null si non présent
 	 */
 	public function getLoggedUser()
 	{
@@ -60,6 +67,7 @@ class AuthentificationManager
 
 	/**
 	 * Utilise les données utilisateurs présentes en base pour mettre à jour les données en session
+	 * @return  boolean
 	 */
 	public function refreshUser()
 	{

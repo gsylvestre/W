@@ -1,6 +1,6 @@
 <?php
 
-//global namespace
+//espace de nom global
 namespace {
 
 	/**

@@ -5,6 +5,9 @@ namespace W\Controller;
 use W\Security\AuthentificationManager;
 use W\Security\AuthorizationManager;
 
+/**
+ * Le contrôleur de base à extender
+ */
 class Controller 
 {
 
@@ -18,13 +21,17 @@ class Controller
 		die();	
 	}
 
-
-	public function redirectToRoute($routeName, $params = array())
+	/**
+	 * Redirige vers une route nommée
+	 * @param  string $routeName Le nom de route vers laquelle rediriger
+	 * @param  array  $params    Tableau de paramètres optionnel de cette route
+	 */
+	public function redirectToRoute($routeName, array $params = array())
 	{
 		$app = getApp();
     	$router = $app->getRouter();
     	$uri = $router->generate($routeName, $params);
-    	return $this->redirect($uri);
+    	$this->redirect($uri);
 	}
 
 

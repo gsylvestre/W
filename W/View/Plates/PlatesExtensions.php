@@ -5,6 +5,9 @@ namespace W\View\Plates;
 use League\Plates\Engine;
 use League\Plates\Extension\ExtensionInterface;
 
+/**
+ * @link http://platesphp.com/engine/extensions/ Documentation Plates
+ */
 class PlatesExtensions implements ExtensionInterface
 {
 	/**

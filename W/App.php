@@ -77,6 +77,7 @@ class App
 
 	/**
 	 * Retourne le routeur
+	 * @return  \AltoRouter Le routeur
 	 */
 	public function getRouter()
 	{

@@ -1,49 +1,37 @@
 <?php
 
-	namespace W\Router\AltoRouter;
+namespace W\Router\AltoRouter;
 
-	class Matcher 
+class Matcher 
+{
+
+	/**
+	 * Cherche une correspondance entre l'URL et les routes, et appelle la méthode appropriée
+	 */
+	public function match()
 	{
+		$router = getApp()->getRouter();
+		$match = $router->match();
 
-		protected $router; //AltoRouter 
+		if ($match){
 
-		public function __construct($router)
-		{
-			$this->router = $router;
+			$callableParts = explode("#", $match["target"]);
+			//retire l'optionnel suffixe 'Controller', pour le remettre ci-dessous
+			$controllerName = ucfirst(str_replace('Controller', '', $callableParts[0]));
+			$methodName = $callableParts[1];
+			$controllerFullName = 'Controller\\'.$controllerName."Controller";
+			
+			$controller = new $controllerFullName();
+			
+			//appelle la méthode, en lui passant les paramètres d'URL en arguments 
+			call_user_func_array(array($controller, $methodName), $match['params']);
 		}
-
-		public function setRouter($router)
-		{
-			$this->router = $router;
-		}
-
-		/**
-		 * Cherche une correspondance entre l'URL et les routes, et appelle la méthode appropriée
-		 */
-		public function match()
-		{
-
-			$match = $this->router->match();
-
-			if ($match){
-
-				$callableParts = explode("#", $match["target"]);
-				//retire l'optionnel suffixe 'Controller', pour le remettre ci-dessous
-				$controllerName = ucfirst(str_replace('Controller', '', $callableParts[0]));
-				$methodName = $callableParts[1];
-				$controllerFullName = 'Controller\\'.$controllerName."Controller";
-				
-				$controller = new $controllerFullName();
-				
-				//appelle la méthode, en lui passant les paramètres d'URL en arguments 
-				call_user_func_array(array($controller, $methodName), $match['params']);
-			}
-			//404
-			else {
-				$controller = new \W\Controller\Controller();
-				$controller->showNotFound();
-			}
-
+		//404
+		else {
+			$controller = new \W\Controller\Controller();
+			$controller->showNotFound();
 		}
 
 	}
+
+}

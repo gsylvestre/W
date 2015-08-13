@@ -2,6 +2,9 @@
 
 namespace W\Manager;
 
+/**
+ * Le manager de base à extender
+ */
 abstract class Manager 
 {
 
@@ -21,26 +24,30 @@ abstract class Manager
 	}
 
 	/**
-	 * Déduit le nom de la table en fonction du nom du Manager
+	 * Déduit le nom de la table en fonction du nom du Manager enfant
 	 * @return W\Manager $this
 	 */
 	private function setTableFromClassName()
 	{
 		$app = getApp();
 
+		//nom de la class enfant
 		$className = get_class($this);
+
+		//retire le Manager, les backslashes et ajoute un "s"
 		$tableName = str_replace("Manager", "", $className);
 		$tableName = strtolower(str_replace("\\", "", $tableName));
 		if (substr($tableName, -1) != "s"){
 			$tableName .= "s";
 		}
+
 		$this->table = $app->getConfig('db_table_prefix') . $tableName;
 
 		return $this;
 	}
 
 	/**
-	 * Définit le nom de la table
+	 * Définit le nom de la table (si le nom déduit ne convient pas)
 	 * @param string $table Nom de la table
 	 * @return W\Manager $this
 	 */
@@ -51,8 +58,9 @@ abstract class Manager
 	}
 
 	/**
+	 * Récupère une ligne de la table en fonction d'un identifiant
 	 * @param  integer Identifiant
-	 * @return mixed Les données (tableau ou objet)
+	 * @return mixed Les données
 	 */
 	public function find($id)
 	{
@@ -70,6 +78,7 @@ abstract class Manager
 
 	/**
 	 * Récupère toutes les lignes de la table
+	 * @return array Toutes les données de la table
 	 */
 	public function findAll()
 	{
@@ -83,6 +92,8 @@ abstract class Manager
 
 	/**
 	 * Efface une ligne en fonction de son identifiant
+	 * @param mixed $id L'identifiant de la ligne à effacer
+	 * @return mixed La valeur de retour de la méthode execute()
 	 */
 	public function delete($id)
 	{
@@ -97,7 +108,10 @@ abstract class Manager
 	}
 
 	/**
-	 * Ajoute une ligne 
+	 * Ajoute une ligne
+	 * @param array $data Un tableau associatif de valeurs à insérer
+	 * @param boolean $stripTags Active le strip_tags automatique sur toutes les valeurs
+	 * @return mixed La valeur de retour de la méthode execute()
 	 */
 	public function insert(array $data, $stripTags = true)
 	{
@@ -122,6 +136,10 @@ abstract class Manager
 
 	/**
 	 * Modifie une ligne en fonction d'un identifiant
+	 * @param array $data Un tableau associatif de valeurs à insérer
+	 * @param mixed $id L'identifiant de la ligne à modifier
+	 * @param boolean $stripTags Active le strip_tags automatique sur toutes les valeurs
+	 * @return mixed La valeur de retour de la méthode execute()
 	 */
 	public function update(array $data, $id, $stripTags = true)
 	{

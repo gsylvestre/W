@@ -5,6 +5,9 @@ namespace W\Manager;
 use \PDO;
 use \PDOException;
 
+/**
+ * Gère la connexion à la base de données (Singleton Pattern)
+ */
 class ConnectionManager
 {
 
