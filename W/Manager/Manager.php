@@ -80,10 +80,13 @@ abstract class Manager
 	 * Récupère toutes les lignes de la table
 	 * @return array Toutes les données de la table
 	 */
-	public function findAll()
+	public function findAll($orderBy = "", $orderDir = "ASC")
 	{
 
 		$sql = "SELECT * FROM " . $this->table;
+		if (!empty($orderBy)){
+			$sql .= " ORDER BY $orderBy $orderDir";
+		}
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 
