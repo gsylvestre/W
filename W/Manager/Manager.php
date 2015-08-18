@@ -78,6 +78,8 @@ abstract class Manager
 
 	/**
 	 * Récupère toutes les lignes de la table
+	 * @param   $orderBy La colonne en fonction de laquelle trier
+	 * @param   $orderDir La direction du tri, ASC ou DESC
 	 * @return array Toutes les données de la table
 	 */
 	public function findAll($orderBy = "", $orderDir = "ASC")
