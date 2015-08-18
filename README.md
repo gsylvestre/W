@@ -14,7 +14,7 @@ Pour installer le framework  :
 
 * Cloner le repo :
 ```
-git clone https://github.com/WebForce3Admin/FrameworkPedagogique.git votre_nouveau_dossier/
+git clone https://github.com/guillaumewf3/W.git votre_nouveau_dossier/
 ```
 * Installer les dépendances avec Composer :
 ```
