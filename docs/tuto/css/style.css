@@ -23,13 +23,13 @@ body {
 }
 
 #sidebar {
-	width: 20%;
+	width: 15%;
 	display: inline-block;
 	vertical-align: top;
 }
 
 #content {
-	width: 60%;
+	width: 84%;
 	display: inline-block;
 }
 
