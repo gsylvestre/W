@@ -1,73 +1,34 @@
-html, body, ul, li {
-	margin: 0;
-	padding: 0;
-}
-
-ul, li {
-	list-style: none;
-}
-
-ul, p {
-	margin: 0 0 5px 0;
-}
-
-body {
+html, body {
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-	font-size: 90%;
 }
 
-.container {
-	margin: 10px auto;
-	width: 95%;
+pre {
+	font-size: 16px;
 }
 
-#sidebar {
-	width: 15%;
-	display: inline-block;
-	vertical-align: top;
-}
-
-#content {
-	width: 84%;
-	display: inline-block;
-}
-
-/* typo */
-
-h1 {
-	font-size: 140%;
-	font-weight: bold;
-	margin: 10px 0 6px 0;
-}
-
-h2 {
-	font-size: 120%;
-	margin: 3px 0;
+span.code {
+	font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+	color: #000;
+	background-color: #FCFAF0;
 }
 
 h3 {
-	font-size: 110%;
-	margin: 5px 0 2px 0;
+	border-bottom: 1px dotted #000;
+}
+
+h4 {
+	text-transform: uppercase;
 }
 
 a {
-	text-decoration: none;
-	color: #000;
+	color: #c0392b;
 }
 
 a:hover {
 	color: #2980b9;
 }
 
-/* fin typo */
-
-
-/* media queries */
-@media screen and (min-width: 1050px) {
-	.container {
-		width: 1000px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+.nav > li > a:hover, .nav > li > a:focus {
+	background-color: #272822;
+	color: #f8f8f2;
 }
