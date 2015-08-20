@@ -1,5 +1,5 @@
 <?php
-	$p = $_GET['p'];
+	$p = (!empty($_GET['p'])) ? $_GET['p'] : "presentation";
 	$file = "pages/$p.php";
 	if (!file_exists($file)){
 		$file = "pages/404.php";
@@ -41,7 +41,7 @@
 					<ul class="nav">
 						<li><a href="?p=configuration" title="Référence de configuration">Configurations</a></li>
 						<li><a href="?p=conventions" title="Conventions du framework W">Conventions</a></li>
-						<li><a href="../api/" title="Documentation de l'API">W :: API</a></li>
+						<li><a href="../api/namespaces/W.html" title="Documentation de l'API">W :: API</a></li>
 					</ul>
 				</nav>
 			</aside>
