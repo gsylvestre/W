@@ -38,8 +38,9 @@ $w_config = [
 
 <h4>Les clefs de configuration en détails</h4>
 <h5>base_url</h5>
-<p>Requise par AltoRouter, <span class="code">base_url</span> comprend le chemin relatif à votre domain, menant à la racine de votre appli. Ainsi, si vous travaillez dans <span class="code">http://localhost/mes-projets/projet-lorem/public/</span>, la valeur de <span class="code">base_url</span> devrait être <span class="code">/mes-projets/projet-lorem/public</span>.</p>
+<p>Requise par AltoRouter si votre site est accessible dans un sous-dossier, même si ce celui-ci est <span class="code">public/</span>, la configuration <span class="code">base_url</span> permet de spécifier le chemin relatif à votre domaine, menant à la racine de votre appli. Ainsi, si vous travaillez dans <span class="code">http://localhost/mes-projets/projet-lorem/public/</span>, la valeur de <span class="code">base_url</span> devrait être <span class="code">/mes-projets/projet-lorem/public</span>.</p>
 <p>Attention : vous devez inclure le slash initial, et exclure le slash final !</p>
+<p>Si votre site est accessible par un domaine pointant directement dans le dossier <span class="code">public/</span>, alors vous pouvez omettre cette clef de configuration.</p>
 
 <h5>db_host, db_user, dp_pass et db_name</h5>
 <p>Les informations de connexion à votre base de données.</p>
