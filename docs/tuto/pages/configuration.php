@@ -23,6 +23,7 @@ $w_config = [
 
 	//authentification, autorisation
 	'security_user_table' => 'users',				//nom de la table contenant les infos des utilisateurs
+	'security_id_property' => 'id',					//nom de la colonne pour la clef primaire
 	'security_username_property' => 'username',		//nom de la colonne pour le "pseudo"
 	'security_email_property' => 'email',			//nom de la colonne pour l'"email"
 	'security_password_property' => 'password',		//nom de la colonne pour le "mot de passe"
@@ -51,8 +52,8 @@ $w_config = [
 <h5>security_user_table</h5>
 <p>Le nom de la table contenant vos utilisateurs.</p>
 
-<h5>security_username_property, security_email_property, security_password_property et security_role_property</h5>
-<p>Le nom des colonnes de votre utilisateur pour les champs qui intéressent W, respectivement : pseudo, email, mot de passe et role.</p>
+<h5>security_*_property (id, username, email, password, role)</h5>
+<p>Le nom des colonnes de votre utilisateur pour les champs qui intéressent W, respectivement : clef primaire, pseudo, email, mot de passe et role.</p>
 
 <h5>security_login_route_name</h5>
 <p>Le nom de la route menant à votre page affichant le formulaire de connexion. W redirigera effectivement les utilisateurs non-connectés tentant d'accéder à une ressource protégée vers cette page.</p>

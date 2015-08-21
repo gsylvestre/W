@@ -27,7 +27,7 @@ class AuthentificationManager
 		}
 
 		if (password_verify($plainPassword, $foundUser[$app->getConfig('security_password_property')])){
-			return (int) $foundUser['id'];
+			return (int) $foundUser[$app->getConfig('security_id_property')]];
 		}
 
 		return 0;
