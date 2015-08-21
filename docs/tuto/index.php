@@ -4,6 +4,11 @@
 	if (!file_exists($file)){
 		$file = "pages/404.php";
 	}
+
+	function active($item){
+		global $p;
+		return ($item == $p) ? 'class="active"' : "";
+	}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,30 +27,30 @@
 			<header class="col-xs-12"><h1>W :: Documentation</h1></header>
 		</div>
 		<div class="row">
-			<aside id="sidebar" class="col-xs-12 col-md-2">
+			<aside id="sidebar" class="col-xs-12 col-lg-2">
 				<h2>Chapitres</h2>
 				<nav>
-					<ul class="nav">
-						<li><a href="?p=presentation" title="Présentation">Présentation</a></li>
-						<li><a href="?p=installation" title="Installation">Installation</a></li>
-						<li><a href="?p=creer_une_page" title="Créer une page">Créer une page</a></li>
-						<li><a href="?p=routes" title="Les routes">Les routes</a></li>
-						<li><a href="?p=controleurs" title="Les contrôleurs">Les contrôleurs</a></li>
-						<li><a href="?p=vues" title="Les vues">Les vues</a></li>
-						<li><a href="?p=gestionnaires" title="Les gestionnaires">Les gestionnaires</a></li>
-						<li><a href="?p=utilisateurs" title="Les utilisateurs">Les utilisateurs</a></li>
+					<ul class="nav nav-pills">
+						<li <?= active('presentation') ?>><a href="?p=presentation" title="Présentation">Présentation</a></li>
+						<li <?= active('installation') ?>><a href="?p=installation" title="Installation">Installation</a></li>
+						<li <?= active('creer_une_page') ?>><a href="?p=creer_une_page" title="Créer une page">Créer une page</a></li>
+						<li <?= active('routes') ?>><a href="?p=routes" title="Les routes">Les routes</a></li>
+						<li <?= active('controleurs') ?>><a href="?p=controleurs" title="Les contrôleurs">Les contrôleurs</a></li>
+						<li <?= active('vues') ?>><a href="?p=vues" title="Les vues">Les vues</a></li>
+						<li <?= active('gestionnaires') ?>><a href="?p=gestionnaires" title="Les gestionnaires">Les gestionnaires</a></li>
+						<li <?= active('utilisateurs') ?>><a href="?p=utilisateurs" title="Les utilisateurs">Les utilisateurs</a></li>
 					</ul>
 				</nav>
 				<h2>Références</h2>
 				<nav>
-					<ul class="nav">
-						<li><a href="?p=configuration" title="Référence de configuration">Configurations</a></li>
-						<li><a href="?p=conventions" title="Conventions du framework W">Conventions</a></li>
+					<ul class="nav nav-pills">
+						<li <?= active('configuration') ?>><a href="?p=configuration" title="Référence de configuration">Configurations</a></li>
+						<li <?= active('conventions') ?>><a href="?p=conventions" title="Conventions du framework W">Conventions</a></li>
 						<li><a href="../api/namespaces/W.html" title="Documentation de l'API">W :: API</a></li>
 					</ul>
 				</nav>
 			</aside>
-			<section id="content" class="language-php col-xs-12 col-md-10">
+			<section id="content" class="language-php col-xs-12 col-lg-10">
 				 <?php require($file); ?>
 			</section>
 		</div>
