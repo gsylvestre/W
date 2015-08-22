@@ -4,7 +4,7 @@ W est un framework minimaliste. Il suit les structures et les grand thèmes des 
 
 ---
 
-Pour installer le framework et consulter la documentation : 
+Pour télécharger le framework et en consulter la documentation : 
 
-* Clonez ou forkez ce dépôt, ou téléchargez le zip
+* Clonez ce dépôt (ou téléchargez le .zip) dans votre dossier de projets web
 * Naviguer vers http://localhost/vos_dossiers/docs/tuto/
