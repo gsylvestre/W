@@ -12,6 +12,19 @@ class Controller
 {
 
 	/**
+	 * Génère l'URL correspondant à une route nommée
+	 * @param  string $routeName Le nom de route
+	 * @param  array  $params    Tableau de paramètres optionnel de cette route
+	 * @return  L'URL correspondant à la route
+	 */
+	public function generateUrl($routeName, array $params = array())
+	{
+		$app = getApp();
+    	$router = $app->getRouter();
+    	return $router->generate($routeName, $params);
+	}
+
+	/**
 	 * Redirige vers une URI
 	 * @param  string $uri URI vers laquelle rediriger
 	 */
@@ -28,9 +41,7 @@ class Controller
 	 */
 	public function redirectToRoute($routeName, array $params = array())
 	{
-		$app = getApp();
-    	$router = $app->getRouter();
-    	$uri = $router->generate($routeName, $params);
+		$uri = $this->generateUrl($routeName, $params);
     	$this->redirect($uri);
 	}
 
