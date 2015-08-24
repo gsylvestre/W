@@ -21,14 +21,14 @@ class PlatesExtensions implements ExtensionInterface
     }
 
     /**
-     * Retourne l'URL absolue d'un asset
+     * Retourne l'URL relative d'un asset
      * @param string $path Le chemin vers le fichier, relatif à public/assets/
-     * @return  string L'URL absolue vers le fichier
+     * @return  string L'URL relative vers le fichier
      */
     public function assetUrl($path)
     {
         $app = getApp();
-        return "//" . $_SERVER['SERVER_NAME'] . $app->getConfig('base_url') . '/assets/' . $path;
+        return $app->getConfig('base_url') . '/assets/' . ltrim($path, '/');
     }
 
     /**
