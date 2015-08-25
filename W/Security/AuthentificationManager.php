@@ -71,10 +71,12 @@ class AuthentificationManager
 	 */
 	public function refreshUser()
 	{
+		$app = getApp();
 		$userManager = new UserManager();
+		$userManager->setTable( $app->getConfig('security_user_table') );
 		$userFromSession = $this->getLoggedUser();
 		if ($userFromSession){
-			$userFromDb = $userManager->find($userFromSession['id']);
+			$userFromDb = $userManager->find($userFromSession[$app->getConfig('security_id_property')]);
 			if ($userFromDb){
 				$_SESSION["user"] = $userFromDb;
 				return true;
