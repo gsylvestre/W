@@ -35,6 +35,10 @@ a:hover {
 	color: #2980b9;
 }
 
+img {
+	margin: 20px 0;
+}
+
 .nav-pills > li > a {
 	font-weight: normal;
 }

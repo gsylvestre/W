@@ -10,6 +10,9 @@
 	<li>Cette méthode affiche finalement un fichier de vue, un template</li>
 </ol>
 
+<p>Voici schématiquement comment se déroule une requête (en omettant quelques éléments) :</p>
+<img src="img/parcours-requete-simple.png" alt="Parcours d'une requête" />
+
 <p>Pour créer une page simple avec W, vous avez besoin donc besoin de définir vous-mêmes 3 éléments : </p>
 
 <ul>
