@@ -28,12 +28,17 @@ class CommentManager extends \W\Manager\Manager
 //propriété contenant le nom de la table (deviné grâce au nom de votre gestionnaire)
 protected $table;
 
+//propriété contenant le nom de la clef primaire de la table (par défaut : 'id')
+protected $primaryKey;
+
 //connexion à la base de données
 protected $dbh;
 
 // Définit le nom de la table (si le nom déduit ne convient pas)
 public function setTable($table)
 
+// Définit le nom de la clef primaire de la table (si ce n'est pas 'id')
+public function setPrimaryKey($primaryKey)
 
 // Récupère une ligne de la table en fonction d'un identifiant
 public function find($id)

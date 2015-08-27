@@ -10,7 +10,7 @@
 <h3>Conventions d'usage</h3>
 <ul>
 	<li>Le nom des routes et des fichiers de vue sont écrit en minuscules, les mots séparés par des underscore (<span class="code">_</span>)</li>
-	<li>Les tables MySQL sont nommées au pluriel</li>
+	<li>Les tables MySQL sont nommées au pluriel, et la clef primaire est toujours `id`</li>
 	<li>Le fichier de vue associé à une méthode de contrôleur devrait être placé dans un dossier portant le même nom que le contrôleur, sans le suffixe <span class="code">Controller</span> (ie le fichier de vue de <span class="code">PostController->showAll()</span> est <span class="code">app/templates/post/show_all.php</span>)</li>
 	<li>Le fichier de vue devrait être nommé exactement comme la méthode de contrôleur y menant, en minuscules et underscores.</li>
 	<li>Le nom des gestionnaires doit être composé du nom de la table au singulier, suivi du suffixe Manager (ie <span class="code">PostManager</span> pour une table nommée <span class="code">posts</span>)</li>

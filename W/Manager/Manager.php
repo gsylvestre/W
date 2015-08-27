@@ -11,6 +11,9 @@ abstract class Manager
 	/** @var string $table Le nom de la table */
 	protected $table;
 
+	/** @var int $primaryKey Le nom de la clef primaire (défaut id) */
+	protected $primaryKey = "id";
+
 	/** @var \Pdo $dbh Connexion à la base de données */
 	protected $dbh;
 
@@ -58,6 +61,35 @@ abstract class Manager
 	}
 
 	/**
+	 * Retourne le nom de la table associée à ce gestionnaire
+	 * @return string Le nom de la table
+	 */
+	public function getTable()
+	{
+		return $this->table;
+	}
+
+	/**
+	 * Définit le nom de la clef primaire
+	 * @param string $primaryKey Nom de la clef primaire de la table
+	 * @return W\Manager $this
+	 */
+	public function setPrimaryKey($primaryKey)
+	{
+		$this->primaryKey = $primaryKey;
+		return $this;
+	}
+
+	/**
+	 * Retourne le nom de la clef primaire
+	 * @return string Le nom de la clef primaire
+	 */
+	public function getPrimaryKey()
+	{
+		return $this->primaryKey;
+	}
+
+	/**
 	 * Récupère une ligne de la table en fonction d'un identifiant
 	 * @param  integer Identifiant
 	 * @return mixed Les données
@@ -68,7 +100,7 @@ abstract class Manager
 			return false;
 		}
 
-		$sql = "SELECT * FROM " . $this->table . " WHERE id = :id LIMIT 1";
+		$sql = "SELECT * FROM " . $this->table . " WHERE $this->primaryKey = :id LIMIT 1";
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(":id", $id);
 		$sth->execute();
@@ -116,7 +148,7 @@ abstract class Manager
 			return false;
 		}
 
-		$sql = "DELETE FROM " . $this->table . " WHERE id = :id LIMIT 1";
+		$sql = "DELETE FROM " . $this->table . " WHERE $this->primaryKey = :id LIMIT 1";
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(":id", $id);
 		return $sth->execute();
@@ -167,7 +199,7 @@ abstract class Manager
 			$sql .= "$key = :$key, ";
 		}
 		$sql = substr($sql, 0, -2);
-		$sql .= " WHERE id = :id";
+		$sql .= " WHERE $this->primaryKey = :id";
 
 		$sth = $this->dbh->prepare($sql);
 		foreach($data as $key => $value){
