@@ -11,6 +11,8 @@ class App
 	protected $config;
 	/** @var \AltoRouter Le routeur */
 	protected $router;
+	/** @var string Le sous-dossier d'URL dans lequel on accède à l'appli */
+	protected $basePath;
 
 	/**
 	 * Constructeur
@@ -21,17 +23,18 @@ class App
 	{
 		session_start();
 		$this->setConfig($w_config);
-		$this->routerSetup($w_routes);
+		$this->routingSetup($w_routes);
 	}
 
-	private function routerSetup(array $w_routes)
+	private function routingSetup(array $w_routes)
 	{
 		$this->router = new \AltoRouter();
 
 		//voir public/.htaccess
 		//permet d'éviter une configuration désagréable (sous-dossier menant à l'appli)
-		$this->router->setBasePath($_SERVER['W_BASE']);
+		$this->basePath = (empty($_SERVER['W_BASE'])) ? '' : $_SERVER['W_BASE'];
 
+		$this->router->setBasePath($this->basePath);
 		$this->router->addRoutes($w_routes);
 	}
 
@@ -97,4 +100,12 @@ class App
 		return $this->router;
 	}
 
+	/**
+	 * Retourne la base path
+	 * @return  string La base path
+	 */
+	public function getBasePath()
+	{
+		return $this->basePath;
+	}
 }

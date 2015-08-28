@@ -27,7 +27,8 @@ class PlatesExtensions implements ExtensionInterface
      */
     public function assetUrl($path)
     {
-        return $_SERVER['W_BASE'] . '/assets/' . ltrim($path, '/');
+        $app = getApp();
+        return $app->getBasePath() . '/assets/' . ltrim($path, '/');
     }
 
     /**
