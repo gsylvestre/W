@@ -1,3 +1,21 @@
 html, body {
-	background-color: #C1E1A6;
+	font-family: Consolas, monaco, monospace;
+	background-color: #272822;
+	color: #F8F8F2;
+}
+
+.container {
+	margin: 50px;
+}
+
+strong {
+	color: #A6E22E;
+}
+
+h1 {
+	color: #F92672;
+}
+
+h2 {
+	color: #66D9EF;
 }
