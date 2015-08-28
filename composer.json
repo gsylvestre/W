@@ -13,5 +13,11 @@
             "W\\": "W/",
             "": "app/"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/gsylvestre/W"
+        }
+    ]
 }
