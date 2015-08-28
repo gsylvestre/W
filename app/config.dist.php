@@ -1,9 +1,6 @@
 <?php 
 
 $w_config = [
-	//url
-	'base_url' => '',								//chemin relatif au domaine, menant à la racine de l'appli
-
    	//information de connexion à la bdd
 	'db_host' => 'localhost',						//hôte (ip, domaine) de la bdd
     'db_user' => 'root',							//nom d'utilisateur pour la bdd

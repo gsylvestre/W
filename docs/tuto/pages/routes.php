@@ -37,7 +37,7 @@ sera sélectionnée que si la requête est réalisée en POST.</p>
 
 <h4>Élément #2: le masque d'URL</h4>
 <p>Le masque d'URL indique à quoi doit ressembler l'URL afin que cette route soit choisie.</p>
-<p>Le masque est donc une simple chaîne, commençant toujours par un <span class="code">/</span>, et dont le chemin est relatif au nom de domaine, ou à la clef de configuration "base_url" si votre site est accessible dans un sous-dossier (public/ par exemple) (<a href="?p=configuration" title="Chapitre sur la configuration">voir ici</a> pour plus de détails).</p>
+<p>Le masque est donc une simple chaîne, commençant toujours par un <span class="code">/</span>, et dont le chemin est relatif au nom de domaine, ou au dossier `public/` si vous accédez à votre application dans un sous-dossier.</p>
 <p>Ainsi, si votre site est accessible à <span class="code">http://localhost/projet/public/</span>, vos masques d'URL seront interprétés relativement au dernier <span class="code">/</span>.</p>
 <p>Vous pouvez sans problème ajouter des <em>sous-dossiers virtuels</em> dans vos URLs. En fait, vous pouvez utiliser n'importe quel caractère d'URL valide : </p>
 <pre><code>$w_routes = [

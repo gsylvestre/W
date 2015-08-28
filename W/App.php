@@ -26,6 +26,10 @@ class App
 		$this->routingSetup($w_routes);
 	}
 
+	/**
+	 * Configure le routage
+	 * @param  array  $w_routes Tableau de routes
+	 */
 	private function routingSetup(array $w_routes)
 	{
 		$this->router = new \AltoRouter();
@@ -45,9 +49,6 @@ class App
 	private function setConfig(array $w_config)
 	{
 		$defaultConfig = [
-			//url
-			'base_url' => '',								//chemin relatif au domaine, menant à la racine de l'appli
-
 		   	//information de connexion à la bdd
 			'db_host' => 'localhost',						//hôte (ip, domaine) de la bdd
 		    'db_user' => 'root',							//nom d'utilisateur pour la bdd
