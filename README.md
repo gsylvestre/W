@@ -4,12 +4,13 @@ W est un framework minimaliste. Il suit les structures et les grand thèmes des 
 
 ---
 
-Pour télécharger le framework et en consulter la documentation : 
+**Pour télécharger le framework et en consulter la documentation : **
 
-Dans un terminal, depuis votre dossier web (`htdocs/` ou `www/`), exécutez : 
+1. Dans un terminal : 
 
-```
-composer create-project wf3/w nom_de_mon_projet
-```
+  ```
+  cd c:/xampp/htdocs
+  composer create-project wf3/w nom_de_mon_projet
+  ```
 
-Naviguez vers http://localhost/nom_de_mon_projet/docs/tuto/
+2. Naviguez vers http://localhost/nom_de_mon_projet/docs/tuto/
