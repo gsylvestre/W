@@ -6,5 +6,10 @@ W est un framework minimaliste. Il suit les structures et les grand thèmes des 
 
 Pour télécharger le framework et en consulter la documentation : 
 
-* Clonez ce dépôt (ou téléchargez le .zip) dans votre dossier de projets web
-* Naviguer vers http://localhost/vos_dossiers/docs/tuto/
+1. Dans un terminal, depuis votre dossier web (`htdocs/` ou `www/`) : 
+
+```
+composer create-project wf3/w nom_de_mon_projet
+```
+
+2. Naviguer vers http://localhost/nom_de_mon_projet/docs/tuto/
