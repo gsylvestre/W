@@ -21,8 +21,17 @@ class App
 	{
 		session_start();
 		$this->setConfig($w_config);
+		$this->routerSetup($w_routes);
+	}
+
+	private function routerSetup(array $w_routes)
+	{
 		$this->router = new \AltoRouter();
-		$this->router->setBasePath($this->getConfig('base_url'));
+
+		//voir public/.htaccess
+		//permet d'éviter une configuration désagréable (sous-dossier menant à l'appli)
+		$this->router->setBasePath($_SERVER['W_BASE']);
+
 		$this->router->addRoutes($w_routes);
 	}
 

@@ -14,14 +14,23 @@ class Controller
 	/**
 	 * Génère l'URL correspondant à une route nommée
 	 * @param  string $routeName Le nom de route
-	 * @param  array  $params    Tableau de paramètres optionnel de cette route
+	 * @param  mixed  $params    Tableau de paramètres optionnel de cette route
+	 * @param  boolean $absolute Retourne une url absolue si true (relative si false)
 	 * @return  L'URL correspondant à la route
 	 */
-	public function generateUrl($routeName, array $params = array())
+	public static function generateUrl($routeName, $params = array(), $absolute = false)
 	{
+		$params = (empty($params)) ? array() : $params;
+
 		$app = getApp();
     	$router = $app->getRouter();
-    	return $router->generate($routeName, $params);
+    	$routeUrl = $router->generate($routeName, $params);
+		$url = $routeUrl;
+		if ($absolute){
+	    	$u = \League\Url\Url::createFromServer($_SERVER);
+			$url = $u->getBaseUrl() . $routeUrl;
+		}
+		return $url;
 	}
 
 	/**

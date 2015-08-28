@@ -27,20 +27,18 @@ class PlatesExtensions implements ExtensionInterface
      */
     public function assetUrl($path)
     {
-        $app = getApp();
-        return $app->getConfig('base_url') . '/assets/' . ltrim($path, '/');
+        return $_SERVER['W_BASE'] . '/assets/' . ltrim($path, '/');
     }
 
     /**
-     * Retourne l'URL absolue d'une route nommée
-     * @param  string $routeName Le nom de la route pour laquelle générer une URL
-     * @param  array $params Un tableau de paramètres requis pour générer l'URL
-     * @return  string L'URL absolue
+     * Génère l'URL correspondant à une route nommée (copie de celle dans \W\Controller\Controller)
+     * @param  string $routeName Le nom de route
+     * @param  mixed  $params    Tableau de paramètres optionnel de cette route
+     * @param  boolean $absolute Retourne une url absolue si true (relative si false)
+     * @return  L'URL correspondant à la route
      */
-    public function generateUrl($routeName, array $params = array())
+    public function generateUrl($routeName, $params = array(), $absolute = false)
     {
-    	$app = getApp();
-    	$router = $app->getRouter();
-    	return $router->generate($routeName, $params);
+    	return \W\Controller\Controller::generateUrl($routeName, $params, $absolute);
     }
 }
