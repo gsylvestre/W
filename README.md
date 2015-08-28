@@ -4,7 +4,7 @@ W est un framework minimaliste. Il suit les structures et les grand thèmes des 
 
 ---
 
-**Pour télécharger le framework et en consulter la documentation : **
+####Pour télécharger le framework et en consulter la documentation :
 
 1. Dans un terminal : 
 
