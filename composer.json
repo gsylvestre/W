@@ -3,6 +3,7 @@
     "description": "Framework pédagogique de la Web Force 3",
     "minimum-stability": "dev",
     "license": "MIT",
+    "prefer-stable": true,
     "require": {
         "altorouter/altorouter": "^1.0",
         "league/plates": "^3.0",
