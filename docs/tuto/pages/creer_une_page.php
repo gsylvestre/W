@@ -105,4 +105,4 @@ $this-&gt;stop('main_content'); ?&gt;
 
 </code></pre>
 
-<p>Il est habituel de n'avoir que quelques layouts (voir un seul) pour vos applications, et que vos différentes pages "héritent" de celui-ci. Voir <a href="http://platesphp.com/templates/inheritance/%20L'h%C3%A9ritage%20dans%20Plates">la documentation de Plates à ce sujet</a>.</p>
+<p>Il est habituel de n'avoir que quelques layouts (voir un seul) pour vos applications, et que vos différentes pages "héritent" de celui-ci. Voir <a href="http://platesphp.com/templates/inheritance/" title="L'héritage dans Plates">la documentation de Plates à ce sujet</a>.</p>
