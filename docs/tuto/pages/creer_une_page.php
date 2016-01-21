@@ -25,7 +25,7 @@
 
 <p>Les routes permettent de faire le lien entre l'URL et une méthode spécifique de vos contrôleurs.</p>
 
-<p>W utilise <a href="http://altorouter.com/%20AltoRouter">AltoRouter</a>, un composant de routage. N'hésitez pas à en consulter <a href="http://altorouter.com/usage/install.html%20Documentation%20de%20AltoRouter">la documentation</a>. </p>
+<p>W utilise <a href="http://altorouter.com/" title="AltoRouter">AltoRouter</a>, un composant de routage. N'hésitez pas à en consulter <a href="http://altorouter.com/usage/install.html" title="Documentation d'AltoRouter">la documentation</a>. </p>
 
 <p>Les routes sont définie dans le fichier <span class="code">app/routes.php</span>, dans le tableau <span class="code">$w_routes</span>.</p>
 
@@ -85,7 +85,7 @@ class DefaultController extends \W\Controller\Controller
 
 <h3>Créer un template</h3>
 
-<p>W utilise <a href="http://platesphp.com/%20Native%20PHP%20Templates">Plates</a>, un moteur de template en PHP, inspiré de <a href="http://twig.sensiolabs.org/%20Twig">Twig</a>.</p>
+<p>W utilise <a href="http://platesphp.com/" title="Plates">Plates</a>, un moteur de template en PHP, inspiré de <a href="http://twig.sensiolabs.org/" title="Twig">Twig</a>.</p>
 
 <p>Pour créer un nouveau template, il suffit créer un fichier php dans le dossier <span class="code">app/templates/</span>. Par convention, on place toutefois ces fichiers dans un sous-dossier portant le nom du contrôleur (ie. dossier <span class="code">templates/admin/</span> pour les templates du contrôleur <span class="code">AdminController</span>).  </p>
 

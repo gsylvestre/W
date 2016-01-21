@@ -56,7 +56,7 @@
 		</div>
 		<div class="row">
 			<footer class="col-xs-12">
-				&copy; <a href="http://wf3.fr" title="Site de la WebForce3">WF3</a>
+				<a href="http://wf3.fr" title="Site de la WebForce3">WF3</a>
 			</footer>
 		</div>
 	</div>
