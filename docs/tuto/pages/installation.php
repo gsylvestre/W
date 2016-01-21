@@ -14,6 +14,7 @@
 <p>3. Installer les dépendances avec Composer :</p>
 <pre><code>cd votre_nouveau_dossier/
 composer install</code></pre>
-<p>4. Configurez votre application dans <span class="code">app/config.php</span> et <span class="code">app/routes.php</span></p>
+<p>4. Créez une copie de <span class="code">app/config.dist.php</span> et nommez-la <span class="code">app/config.php</span></p>
+<p>5. <a href="?p=configuration" title="Référence des configurations">Configurez votre application</a> dans <span class="code">app/config.php</span> et <span class="code">app/routes.php</span></p>
 <h3>Tester l'installation</h3>
-<p>Naviguez vers <span class="code">http://localhost/votre_nouveau_dossier/public/</span></p>
+<p>Naviguez vers <span class="code">http://localhost/votre_nouveau_dossier/public/<b>check.php</b></span></p>
