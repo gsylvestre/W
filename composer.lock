@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "925a25f7775debe0c1d4b9b5ae475804",
+    "hash": "0d8f0c7deceb31ad71475ba2cfcfc39d",
+    "content-hash": "326c6d275e220639fb25092378e4e937",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -302,16 +303,16 @@
         },
         {
             "name": "true/punycode",
-            "version": "2.0.0",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/true/php-punycode.git",
-                "reference": "13d3aada7d7d5d1812316031d8d85f5d97178c4e"
+                "reference": "74fa01d4de396c40e239794123b3874cb594a30c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/true/php-punycode/zipball/13d3aada7d7d5d1812316031d8d85f5d97178c4e",
-                "reference": "13d3aada7d7d5d1812316031d8d85f5d97178c4e",
+                "url": "https://api.github.com/repos/true/php-punycode/zipball/74fa01d4de396c40e239794123b3874cb594a30c",
+                "reference": "74fa01d4de396c40e239794123b3874cb594a30c",
                 "shasum": ""
             },
             "require": {
@@ -344,14 +345,14 @@
                 "idna",
                 "punycode"
             ],
-            "time": "2015-06-24 09:36:39"
+            "time": "2016-01-07 17:12:58"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
