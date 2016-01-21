@@ -8,8 +8,13 @@ html, body {
 	margin: 50px;
 }
 
-strong {
+a {
+	text-decoration: none;
 	color: #A6E22E;
+}
+
+a:hover {
+	color: #F92672;
 }
 
 h1 {
