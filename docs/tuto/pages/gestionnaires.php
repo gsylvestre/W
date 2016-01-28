@@ -25,13 +25,13 @@ class CommentManager extends \W\Manager\Manager
 <p>Voici les propriétés et les méthodes les plus utiles, héritées du gestionnaire de base. Vous devrez créer vos propres méthodes pour réaliser toutes les requêtes SQL plus complexes !</p>
 <pre><code>/* W/Manager/Manager.php */
 
-//propriété contenant le nom de la table (deviné grâce au nom de votre gestionnaire)
+// propriété contenant le nom de la table (deviné grâce au nom de votre gestionnaire)
 protected $table;
 
-//propriété contenant le nom de la clef primaire de la table (par défaut : 'id')
+// propriété contenant le nom de la clef primaire de la table (par défaut : 'id')
 protected $primaryKey;
 
-//connexion à la base de données
+// connexion à la base de données
 protected $dbh;
 
 // Définit le nom de la table (si le nom déduit ne convient pas)
@@ -44,19 +44,24 @@ public function setPrimaryKey($primaryKey)
 public function find($id)
 
 // Récupère toutes les lignes de la table
-public function findAll($orderBy = "", $orderDir = "ASC")
+public function findAll($orderBy = "", $orderDir = "ASC", $limit = null, $offset = null)
 
 // Efface une ligne en fonction de son identifiant
 public function delete($id)
 
 // Ajoute une ligne
-//Le premier argument est un tableau associatif de valeurs à insérer
+// Le premier argument est un tableau associatif de valeurs à insérer
+// Retourne les données insérées (avec l'identifiant)
 public function insert(array $data, $stripTags = true)
 
 // Modifie une ligne en fonction d'un identifiant
 // Le premier argument est un tableau associatif de valeurs à insérer
 // Le second est l'identifiant de la ligne à modifier
+// Retourne les données mises à jour
 public function update(array $data, $id, $stripTags = true)
+
+// Retourne l'identifiant de la dernière ligne insérée
+public function lastInsertId()
 </code></pre>
 
 

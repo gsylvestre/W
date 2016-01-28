@@ -92,7 +92,7 @@ abstract class Manager
 	/**
 	 * Récupère une ligne de la table en fonction d'un identifiant
 	 * @param  integer Identifiant
-	 * @return mixed Les données
+	 * @return mixed Les données sous forme de tableau associatif
 	 */
 	public function find($id)
 	{
@@ -112,9 +112,11 @@ abstract class Manager
 	 * Récupère toutes les lignes de la table
 	 * @param   $orderBy La colonne en fonction de laquelle trier
 	 * @param   $orderDir La direction du tri, ASC ou DESC
-	 * @return array Toutes les données de la table
+	 * @param   $limit Le nombre maximum de résultat à récupérer
+	 * @param   $offset La position à partir de laquelle récupérer les résultats
+	 * @return array Les données sous forme de tableau multidimensionnel
 	 */
-	public function findAll($orderBy = "", $orderDir = "ASC")
+	public function findAll($orderBy = "", $orderDir = "ASC", $limit = null, $offset = null)
 	{
 
 		$sql = "SELECT * FROM " . $this->table;
@@ -128,8 +130,20 @@ abstract class Manager
 			if($orderDir != "ASC" && $orderDir != "DESC"){
 				die("invalid orderDir param");
 			}
+			if ($limit && !is_int($limit)){
+				die("invalid limit param");
+			}
+			if ($offset && !is_int($offset)){
+				die("invalid offset param");
+			}
 
 			$sql .= " ORDER BY $orderBy $orderDir";
+			if ($limit){
+				$sql .= " LIMIT $limit";
+				if ($offset){
+					$sql .= " OFFSET $offset";
+				}
+			}
 		}
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
@@ -158,7 +172,7 @@ abstract class Manager
 	 * Ajoute une ligne
 	 * @param array $data Un tableau associatif de valeurs à insérer
 	 * @param boolean $stripTags Active le strip_tags automatique sur toutes les valeurs
-	 * @return mixed La valeur de retour de la méthode execute()
+	 * @return mixed false si erreur, les données insérées mise à jour sinon
 	 */
 	public function insert(array $data, $stripTags = true)
 	{
@@ -178,7 +192,11 @@ abstract class Manager
 			$value = ($stripTags) ? strip_tags($value) : $value;
 			$sth->bindValue(":".$key, $value);
 		}
-		return $sth->execute();
+
+		if (!$sth->execute()){
+			return false;
+		}
+		return $this->find($this->lastInsertId());
 	}
 
 	/**
@@ -186,7 +204,7 @@ abstract class Manager
 	 * @param array $data Un tableau associatif de valeurs à insérer
 	 * @param mixed $id L'identifiant de la ligne à modifier
 	 * @param boolean $stripTags Active le strip_tags automatique sur toutes les valeurs
-	 * @return mixed La valeur de retour de la méthode execute()
+	 * @return mixed false si erreur, les données mises à jour sinon
 	 */
 	public function update(array $data, $id, $stripTags = true)
 	{
@@ -207,6 +225,19 @@ abstract class Manager
 			$sth->bindValue(":".$key, $value);
 		}
 		$sth->bindValue(":id", $id);
-		return $sth->execute();
+
+		if (!$sth->execute()){
+			return false;
+		}
+		return $this->find($id);
+	}
+
+	/**
+	 * Retourne l'identifiant de la dernière ligne insérée
+	 * @return int L'identifiant
+	 */
+	public function lastInsertId()
+	{
+		return $this->dbh->lastInsertId();
 	}
 }
